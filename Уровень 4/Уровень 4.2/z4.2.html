@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 4.2 задачника JavaScript</title>
+</head>
+<body>
+<h1>Уровень 4.2 задачника JavaScript</h1>
+
+<h2>№1 Сделайте функцию, которая параметром будет принимать <br>
+	 число и возвращать сумму его цифр.</h2>
+<div421 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div421>
+
+<script>
+
+let num421=7896541230;
+//function calcNum (num) {
+//	let arr = num421.toString().split( '' ).map( n => +n )
+//	let sum = 0;
+//	for ( let i = 0; i <arr.length; ++i ) {
+//	sum += arr[i];
+//}
+//console.log( sum );
+//}
+//calcNum( num422 )
+
+	function getDigitsSum ( num ) {
+		let sum = 0;
+		let str = String( num );
+		for ( let i = 0; i < str.length; i++ )
+		sum += Number( str[ i ] );
+		console.log( `число ${ num421 }, суммa его цифр ${ sum }` );
+		document.querySelector('div421').innerHTML= `число ${num421}, суммa его цифр ${ sum }`
+		return sum;
+		
+	}
+	getDigitsSum( num421 );
+
+</script>
+
+	<h2>№2 Сделайте функцию, которая параметром будет <br>
+		 принимать число и удалять из него нули.</h2>
+<div422 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div422>
+
+<script>
+let num422=450630879000;
+
+function removesTheZero (num) {
+	let arr = num422.toString().split( '' ).map( n => +n )
+	const exp422 = /[0]/;
+	arr = arr.filter( function ( entry ) { return !exp422.test( entry )}).join( "" );
+	console.log( `число ${ num422 }, удалить из него нули =${ +arr }` );
+	document.querySelector('div422').innerHTML= `число ${ num422 }, удалить из него нули =${ +arr }`;
+}
+	removesTheZero( num422 );
+</script>
+
+<h2>№3 Сделайте функцию, которая будет возвращать сколько дней <br>
+	 прошло или осталось до заданной даты в году, в зависимости от
+того, была уже эта дата или нет. </h2>
+<div423 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div423>
+
+<script>
+
+	function daysTill ( ddmmyyyy ) {
+		let dd;
+		let mm;
+		let yyyy;
+		[ dd, mm, yyyy ] = ddmmyyyy.split( '.' );
+		const Till = new Date( yyyy, mm - 1, dd );
+		const Now = new Date();
+		return Math.floor( ( Now  - Till ) / 86400000 );
+	}
+
+	console.log(`c 13.07.1963  прошло  ${ daysTill( "13.07.1963" ) } дней`  ) 
+document.querySelector('div423').innerHTML= `c 13.07.1963  прошло ${ daysTill( "13.07.1963" ) } дней`;
+
+</script>
+
+<h2>№4  Сделайте функцию, которая параметром будет <br>
+	 принимать год и проверять, високосный он или нет.</h2>
+<div424 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div424>
+
+<script>
+
+
+
+
+	function isLeap ( year ) {
+		if ( year % 4 === 0 ) {
+			if ( year % 100 === 0 ) {
+				if ( year % 400 == 0 ) {
+					return ( "Високосный год." );
+				} else {
+					return ( "обычный." );
+				}
+			} else {
+				return ( "Високосный год." );
+			}
+		} else {
+			return ( "обычный." );
+		}
+	}
+	let test1= isLeap( 1963 );
+	console.log('1963'+' '+ test1 );
+	let test2 =isLeap( 1957 );
+	console.log('1957' + ' ' + test2 );
+	let test3 =isLeap( 1980 );
+	console.log( '1980' + ' ' + test3 );
+		let test4 = isLeap( 1900 );
+		console.log( '1900' + ' ' + test4 );
+
+	document.querySelector('div424').innerHTML=`1963 ${test1} <br> 1957 ${ test2}<br> 1980 ${ test3} <br> 1900 ${ test4}`
+
+	//let date = new Date( 2020, 2, 0 );
+
+	//if ( date.getDate() == 29 ) {
+	//	console.log( 'високосный' );
+	//} else {
+	//	console.log( 'обычный' );
+	//}
+
+</script>
+
+<h2>№5 Сделайте функцию, которая вернет массив <br>
+	 всех високосных годов за предыдущие сто лет.</h2>
+<div425 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div425>
+
+<script>
+
+	let firstYear = 1924;
+	let secondYear = 2024;
+
+	function getLeapYears ( start, end ) {
+		return Array.from( { length: end - start + 1 }, ( n, i ) => start + i )
+			.filter( n => ( ( n % 100 ) && !( n % 4 ) ) || !( n % 400 ) )
+	}
+let arr425=	getLeapYears( firstYear, secondYear )
+console.log( `arr425=[${ arr425 }]` );
+document.querySelector('div425').innerHTML=`arr425=[${arr425}]`;
+
+//	Array.from( { length: end - start + 1 }, ( n, i ) => start + i ) создаёт новый массив, содержащий значения в диапазоне от start до end. 
+//Это достигается за счёт того, что первый аргумент функции Array.from() представляет собой объект со свойством length, который определяет длину создаваемого массива.  Второй аргумент, в свою очередь, является функцией преобразования элемента перед его добавлением в массив.
+
+</script>
+
+<h2>№6 Сделайте функцию, которая будет возвращать сколько дней осталось до конца текущего месяца.</h2>
+<div426 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div426>
+
+<script>
+let day426= "01.12.2024";
+
+function daysOfTheCurrentMonth ( ddmmyyyy ){
+	let dd;
+	let mm;
+	let yyyy;
+	[ dd, mm, yyyy ] = ddmmyyyy.split( '.' );
+	const Till = new Date( yyyy, mm - 1, dd );
+	const Now = new Date();
+	return Math.floor( ( Till - Now ) / 86400000 );
+}
+	console.log( `до конца текущего месяца ${ daysOfTheCurrentMonth( day426 ) } дней` )
+	document.querySelector( 'div426' ).innerHTML = `до конца текущего месяца ${ daysOfTheCurrentMonth( day426 ) } дней`;
+
+</script>
+
+<h2>№7 Сделайте функцию, которая вернет предыдущий, <br>
+	 текущий и следующий дни недели словом в виде следующего объекта:<br>
+{next: 'пн', curr: 'вс', prev: 'сб',}
+</h2>
+<div427 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div4>
+
+	<script>
+
+	function get_near_days () {
+		const week = [
+			"воскресенье",
+			"понедельник",
+			"вторник",
+			"среда",
+			"четверг",
+			"пятница",
+			"суббота"
+		];
+		let out = { next: 1,  curr: 0, prev: -1, }; // шаблон выходного объекта
+		const today = new Date().getDay();
+		for ( const [ key, value ] of Object.entries( out ) ) {
+			out[ key ] = week[ ( today + value + 7 ) % 7 ];
+		}
+		return out;
+	}
+
+	let test9 = get_near_days()
+	console.log(test9 );
+
+
+
+	</script>
+
+
+</body>
+</html>

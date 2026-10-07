@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 4.10 задачника JavaScript</title>
+</head>
+<body>
+	<h1>Уровень 4.10 задачника JavaScript</h1>
+
+	<h2> №1 Сделайте функцию, которая параметром будет принимать букву и проверять, это буква кириллицы или латиницы.</h2>
+	<pre style="font-size: 140%;">let str41011='Уровень';
+let str41012 = 'JavaScript';</pre>
+
+	<div4101 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div4101>
+
+	<script>
+		function getStrLatRus ( str ) {
+			let exp1 = /[a-zA-Z]/;
+			let newstr = exp1.test( str )
+			if ( newstr === true ) {
+				console.log( 'латиница' );
+				document.querySelector( 'div4101' ).innerHTML = `{str41012} - латиница`;
+			} else {
+				console.log( 'кириллица' );
+				document.querySelector( 'div4101' ).innerHTML = `{str41011} - кириллица`;
+			}
+		}
+
+		let str41011 = 'Уровень';
+		let str41012 = 'JavaScript';
+
+		getStrLatRus( str41011 );
+		getStrLatRus( str41012 );
+
+	</script>
+
+	<h2>№2 Сделайте функцию, которая параметром будет принимать массив и перемешивать элементы этого массива в случайном
+		порядке.</h2>
+	<div4102 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div4102>
+
+	<script>
+		//Суть алгоритма, если перевести с JS на русский, следующая: берём последний элемент и меняем его местами со случайно выбранным элементом не правее его( в том числе, возможно, и с ним самим ).Затем повторяем ту же операцию для предпоследнего элемента, потом для предпредпоследнего и так далее.
+
+	function shuffle ( arr ) {
+		let j;
+		let temp;
+		for ( let i = arr.length - 1; i > 0; i-- ) {
+			j = Math.floor( Math.random() * ( i + 1 ) );
+			temp = arr[ j ];
+			arr[ j ] = arr[ i ];
+			arr[ i ] = temp;
+
+		}
+		return document.querySelector('div4102'). innerHTML=`  [${arr}]` , console.log( ` [${ arr }]` );
+		
+	}
+
+		let arr4102 = [ 10, 20, 30, 40, 50, 60, ]
+
+		shuffle( arr4102 );
+
+	</script>
+
+<h2>№3 Дан текст со словами. Запишите все слова этого текста в специальный объект. Ключами в этом объекте будут буквы, а
+значениями - массивы слов, начинающихся на эти буквы.</h2>
+ <div4103 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div4103>
+
+	<script>
+function getAzbuka(arr) {
+			arr = arr
+		.toLowerCase()
+		.split( " " )
+		.sort()
+		console.log( arr );
+
+	function arrToObj ( arr ) {
+		let result = {};
+		for ( let i = 0, c; i < arr.length; i++ ) {
+			c = arr[ i ].substr( 0, 1 );//в JavaScript возвращает первый символ элемента
+			if ( !result[ c ] ) {
+				result[ c ] = [];
+			}
+			result[ c ].push( arr[ i ] );
+		}
+		return result;
+	}
+	let test = arrToObj( arr )
+	console.log( test );
+	document.querySelector('div4103').innerHTML=`${test}`; 
+}
+
+let str4103='Азъ буки веде Глаголь добро есте Живите зело земля И иже како люди Мыслете наш он покой Рцы слово твёрдо Укъ фертъ херъ Цы черве шта ъра юсъ яти';
+
+	getAzbuka( str4103 ) ;
+
+</script>
+
+<h2>№4 Сделайте функцию, которая параметром будет принимать число, а возвращать массив его делителей, являющихся
+	простыми числами.</h2>
+<div4104 style="font-size: 140%; text-shadow: 1px 1px 2px red;" ></div4104>
+
+<script>
+
+	function PrimeNumber ( InputNumber ) {
+		// объявляем внутреннюю функцию — она проверяет, простое число ей передали или нет
+		function isPrime ( m ) {
+			// перебираем все числа от 2 до переданного числа
+			for (let i = 2; i < m; i++ ) {
+				// если число делится нацело на любое число из этого диапазона, значит, оно не простое
+				if ( m % i === 0 ) {
+					// возвращаем признак того, что это не простое число
+					return false;
+				}
+			}
+			// если мы дошли досюда, значит, ни один делитель не подошёл, поэтому перед нами простое число
+			return true;
+		}
+
+		// массив, где будем хранить все найденные простые множители
+		var sequence = [];
+		// точно так же проходим все числа от 2 до введённого числа
+		for ( let j = 2; j < InputNumber; j++ ) {
+			// если введённое число делится нацело и делитель — простое число,
+			if ( InputNumber % j === 0 && isPrime( j ) ) {
+				// то добавляем это число в массив с простыми множителями
+				sequence.push( j );
+			}
+		}
+		// в конце основной функции возвращаем её значение — массив с простыми делителями
+		return sequence;
+	};
+
+	let num4104 = 123456;
+	console.log( PrimeNumber( num4104 ) );
+document.querySelector('div4104').innerHTML=`  [${PrimeNumber( num4104 )}]` ;
+
+</script>
+
+<h2>№5 Сделайте функцию, которая параметром будет принимать слово и возвращать массив его слогов.</h2>
+<div4105 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div4105>
+
+<script>
+
+
+	function getReturnArraySyllables ( word ) {
+        let response = [];
+        let isSpecialCase = false;
+        let nums = (word.match(/[уеыаоэяию]/gi) || []).length;
+        //отладчик;
+        if (isSpecialCase == false && (word.match(/[0123456789]/gi) || []).length == word.length ){
+            // имеет цифры
+            response.push(word);
+            isSpecialCase = true;
+        }
+
+        if (isSpecialCase == false && word.length < 4){
+            //три буквы или меньше
+            response.push(word);
+            isSpecialCase = true;
+        } 
+
+        if (isSpecialCase == false && word.charAt(word.length-1) == "e"){
+            if (isVowel(word.charAt(word.length-2)) == false){
+                let cnt = (word.match(/[уеыаоэяию]/gi) || []).length;
+                if (cnt == 3){
+                    if (hasDoubleVowels(word)){
+                        response.push(word);
+                        isSpecialCase = true;
+                    }
+                }
+                if (cnt == 2){ 
+                    if (hasRecurringConsonant(word) == false) {
+                    response.push(word);
+                    isSpecialCase = true;
+                    }
+
+                }
+            }
+        }
+
+        if (isSpecialCase == false){
+            const syllableRegex = /[^уеыаоэяию]*[уеыаоэяию]+(?:[^уеыаоэяию]*$|[^уеыаоэяию](?=[^уеыаоэяию]))?/gi;
+            response = word.match(syllableRegex);
+        }
+
+        return response;
+    } 
+	
+
+let str4105='перемешивать';
+
+	console.log( getReturnArraySyllables( str4105 ) ); ;
+
+</script>
+
+
+</body>
+
+</html>

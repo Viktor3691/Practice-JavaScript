@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 3.10 задачника JavaScript</title>
+</head>
+<body>
+	<h1>Уровень 3.10 задачника JavaScript</h1>
+
+	<h2>№1Дан массив. <br>
+		 Сделайте так, чтобы в нем каждый элемент повторился два раза.</h2>
+
+		 <div3101 style="font-size: 140%; text-shadow: 1px 1px 2px red;" ></div3101>
+
+		 <script>
+
+	const str3101 = 'Сделайте|| так,|| чтобы|| в нем|| каждый|| элемент|| повторился|| два|| раза.'
+	let arr3101 = str3101.split( '||' );
+	arr3101= [ ...arr3101, ...arr3101, ]
+
+	console.log( arr3101 )
+document.querySelector("div3101").innerHTML = arr3101;
+
+		 </script>
+
+<h2>№2 Дан массив и число. <br>
+	 Оставьте в массиве только те числа, которые являются делителями заданного числа.</h2>
+
+	<div3102 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div3102>
+
+	<script>
+let num3102=2555;
+let arr3102=[];
+
+for (let index = 0; index < 1000; index++) {
+		if ( num3102 % index == 0 ) {
+			arr3102.push( index )
+		}
+}
+	console.log( arr3102 )
+	document.querySelector( "div3102" ).innerHTML = arr3102;
+	</script>
+
+<h2>№3 Даны два числа. <br>
+	 Получите массив цифр, которые есть и в одном, и во втором числе.</h2>
+
+<div3103 style="font-size: 140%; text-shadow: 1px 1px 2px red;" ></div3103>
+
+<script>
+	let num31031=12579;
+	let num31032=192874;
+	
+	let arr31031 = num31031.toString().split( '' ).map( n => +n )
+	let arr31032 = num31032.toString().split( '' ).map( n => +n )
+	console.log( arr31031,arr31032 );
+
+	const intersection = arr31031.filter( value => arr31032.includes( value ) );
+
+	console.log( `Даны два числа.  ${ num31031 } и ${ num31032 } общие цифры ${ intersection }` )
+document.querySelector('div3103').innerHTML = `Даны два числа.  ${num31031} и ${num31032} общие цифры ${ intersection}`;
+
+</script>
+
+<h2>№4 Дано число. <br>
+	 Получите массив позицией всех цифр 3 в этом числе, <br>
+	  за исключением первой и последней.</h2>
+<div3104 style="font-size: 140%; text-shadow: 1px 1px 2px red;" ></div3104>
+
+<script>
+
+let num3104 = 323653789323;
+
+	//const num = 130303033302;
+let arr3104 = Array.from( num3104.toString().matchAll( /3/g ), x => x.index ).slice( 1, -1 )
+
+	console.log(`число  ${num3104}.  Массив позиций всех цифр 3 = [${arr3104}] `  );
+document.querySelector('div3104').innerHTML = `число  ${ num3104 }.  Массив позиций всех цифр 3 = [${ arr3104 }] `;
+
+</script>
+
+<h2>№5 Дан массив со числами. <br>
+	 Оставьте в нем числа, состоящие из разных цифр, а остальные удалите.</h2>
+
+	 <div3105 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div3105>
+
+	 <script>
+
+	let arr3105 = [ 1, 11, 23, 30, 33, 401, 440, 500, 501 ];
+
+	//1
+	//let x = arr3105.filter( el => el.toString().match( /(?=(.))\1{2,}/g ) )
+	//for ( let i = 0; i < x.length; i++ ) {
+	//arr3105=arr3105.splice( arr3105.indexOf( x[ i ] ), 1 )
+	//}
+
+	//2
+//const noRepeatingDigits = num => !/(\d).*\1/.test( num );
+//arr3105= arr3105.splice( 0, arr3105.length, ...arr3105.filter( noRepeatingDigits ) );
+
+//3
+
+	//const noRepeatingDigits = num => -~Math.log10( num ) === new Set( `${ num }` ).size;
+	//let numDeleted = 0;
+
+	//for ( const [ i, n ] of arr3105.entries() ) {
+	//	arr3105[ i - numDeleted ] = n;
+	//	numDeleted += !noRepeatingDigits( n );
+	//}
+	//arr3105.length -= numDeleted;
+
+//4
+
+	const noRepeatingDigits = num => [ ...'' + num ].every( ( n, i, a ) => i === a.indexOf( n ) );
+	for ( let i = arr3105.length; i--; ) {
+			if ( !noRepeatingDigits( arr3105[ i ] ) ) {
+				arr3105.splice( i, 1 );
+			}
+		}
+
+
+	console.log(`Дан массив let arr3105 = [ 1, 11, 23, 30, 33, 401, 440, 500, 501 ]; числа где не повторяются цифры [${arr3105}]`  );
+document.querySelector('div3105').innerHTML = `Дан массив let arr3105 = [ 1, 11, 23, 30, 33, 401, 440, 500, 501 ]; числа где не повторяются цифры [${ arr3105 }]`;
+	
+	 </script>
+
+<h2>№6 Дан массив: <br>
+
+[<br>
+[1, 2, 3],<br>
+[4, 5, 6],<br>
+[7, 8, 9],<br>
+]<br>
+Слейте элементы этого массива в один одномерный массив:<br>
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+</h2>
+<div3106 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div3106>
+
+<script>
+
+	let arr3106 = [
+		[ 1, 2, 3 ],
+		[ 4, 5, 6 ],
+		[ 7, 8, 9 ]
+	];
+	let res3106 = [].concat( arr3106[ 0 ], arr3106[ 1 ], arr3106[ 2 ] );
+	console.log( `[${ res3106 }]` );
+	document.querySelector('div3106').innerHTML = `[${res3106}]`
+
+</script>
+
+	
+</body>
+</html>

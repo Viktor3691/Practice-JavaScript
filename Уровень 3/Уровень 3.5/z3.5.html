@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 3.5 задачника JavaScript</title>
+</head>
+<body>
+<h1>Уровень 3.5 задачника JavaScript</h1>
+
+<h2>№1 Дан текст со словами. <br>
+	Запишите в массив все слова, начинающиеся на букву 'a'.</h2>
+	<div id="out351" style="font-size: 150%; text-shadow: 1px 1px 2px #8f061d; "></div>
+
+	<script>
+let str351="Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis blanditiis optio natus odit aspernatur vel consequatur a corrupti alias exercitationem neque ad repudiandae asperiores necessitatibus eligendi ducimus quas, delectus voluptates?"
+
+	let arr351 = str351.split( ' ' );
+console.log(arr351);
+
+	let res351 = arr351.filter( function ( elem ) {
+		if ( elem[0]=='a' ) {
+			return true;
+		} else {
+			return false;
+		}
+	} );
+
+	console.log(`текст '${str351}' слова, начинающиеся на букву 'a' "${ res351 }"`);
+document.getElementById("out351").innerHTML = `текст '${ str351}' <br>
+<br>
+ слова, начинающиеся на букву 'a' "${ res351 }"`;
+	</script>
+
+<h2>№2 Дан массив с числами. <br>
+	 Оставьте в нем только те числа, которые делятся на 5.</h2>
+<div id="out352" style="font-size: 140%; text-shadow: 1px 1px 2px #8f061d;"></div>
+
+<script>
+let arr352 = [4, 10, 42, 55, 123, 78, 45, 200, 255, 1, 2, 4,]
+
+	let res352 = arr352.filter( function ( elem ) {
+		if ( elem%5 == 0 ) {
+			return true;
+		} else {
+			return false;
+		}
+	} );
+console.log(`массив с числами [${arr352}] делятся на 5 [${res352}]`);
+document.getElementById("out352").innerHTML = `массив с числами [${arr352}] делятся на 5 [${ res352 }]`;
+
+</script>
+
+<h2>№3 Дан массив с числами. <br>
+	 Оставьте в нем только те числа, которые содержат цифру ноль.</h2>
+<div id="out353" style="font-size: 140%; text-shadow: 1px 1px 2px #8f061d;"></div>
+
+<script>
+
+let arr353 = [ 0, 10, 402, 5050, 10230, 78, 45, 2101, 256, 11, 20, 405, 4055, ];
+let newarr353=[];
+	let num1;
+	for ( let i = 0; i <= arr353.length - 1; i++ ) {
+		let num = String( arr353[ i ] ) //переделали массив в строку
+		let char0 = num[ 0 ] //присвоили первый символ переделанного массива в строку в переменную
+		let char1 = num[ 1 ]
+		let char2 = num[ 2 ]
+		let char3 = num[ 3 ]
+		let char4 = num[ 4 ]
+		if ( char0 == 0 || char1 == 0 || char2 == 0 || char3 == 0 || char4 == 0 ) {
+			num1 = Number( num )
+      newarr353.push(num1);
+
+			
+		}
+	}
+				console.log( `массив [${ arr353 }] - числа, которые содержат цифру ноль = [${ newarr353 }]` )
+				document.getElementById( "out353" ).innerHTML = `массив [${ arr353 }] - числа, которые содержат цифру ноль = [${ newarr353 }]`;
+
+
+</script>
+
+<h2>№4 Дан массив со числами. <br>
+	 Проверьте, что в нем есть число, содержащее в себе цифру 3.</h2>
+<div id="out354" style="font-size: 140%; text-shadow: 1px 1px 2px #8f061d;"></div>
+
+<script>
+	let arr354 = [ -3, 10, 43, 5050, 1023, 78, -45, 233, 256, 11, ];
+	let newarr354 = [];
+	let num354;
+	for ( let i = 0; i <= arr354.length - 1; i++ ) {
+		let num = String( arr354[ i ] ) //переделали массив в строку
+		let char0 = num[ 0 ] //присвоили первый символ переделанного массива в строку в переменную
+		let char1 = num[ 1 ]
+		let char2 = num[ 2 ]
+		let char3 = num[ 3 ]
+		let char4 = num[ 4 ]
+		if ( char0 == 3 || char1 == 3 || char2 == 3 || char3 == 3 || char4 == 3 ) {
+			num354 = Number( num )
+			newarr354.push( num354);
+		}
+	}
+console.log( `массив [${ arr354 }] - числа, которые содержат цифру ноль = [${ newarr354 }]` )
+document.getElementById( "out354" ).innerHTML = `массив [${ arr354 }] - числа, которые содержат цифру 3 = [${ newarr354 }]`;
+
+</script>
+
+<h2>№5 Дано некоторое число: 35142 <br>
+Отсортируйте цифры этого числа.<br>
+ В нашем случае должно получится следующее: 12345</h2>
+<div id="out355" style="font-size: 140%; text-shadow: 1px 1px 2px #8f061d;"></div>
+
+<script>
+let num355= 35142;
+
+	const sortNumber = ( a ) => Number( [ ...( "" + a ) ].sort().join( "" ) );
+let newnum355= sortNumber( num355 )
+	console.log( `Отсортируйте число: 35142 newnum355=${ newnum355}` );
+document.getElementById("out355").innerHTML= `Отсортируйте число: 35142 newnum355=${ newnum355 }`;
+
+</script>
+
+<h2>№6 Напишите программу, <br>
+	 которая сформирует следующую строку: '-1-2-3-4-5-'</h2>
+<div id="out356" style="font-size: 140%; text-shadow: 1px 1px 3px #8f061d;"></div>
+
+<script>
+	let str356 = "";
+	for ( i = 1; i <= 6; i++ ) {
+		str356 = str356 + "-";
+		if ( i == 6 ) break;
+		str356 = str356 + i;
+	}
+	console.log( `str356= '${ str356 }'` );
+document.getElementById("out356").innerHTML=`str356= '${str356}'`;
+
+</script>
+
+<h2>№7 Дан следующий объект:<br>
+
+let obj = {<br>
+1: {<br>
+1: {<br>
+1: 111,<br>
+2: 112,<br>
+3: 113,<br>
+},<br>
+2: {<br>
+1: 121,<br>
+2: 122,<br>
+3: 123,<br>
+},<br>
+},<br>
+2: {<br>
+1: {<br>
+1: 211,<br>
+2: 212,<br>
+3: 213,<br>
+},<br>
+2: {<br>
+1: 221,<br>
+2: 222,<br>
+3: 223,<br>
+},<br>
+},<br>
+3: {<br>
+1: {<br>
+1: 311,<br>
+2: 312,<br>
+3: 313,<br>
+},<br>
+2: {<br>
+1: 321,<br>
+2: 322,<br>
+3: 323,<br>
+},<br>
+},<br>
+}<br>
+Найдите сумму элементов этого объекта.</h2>
+
+<div id="out3571" style="font-size: 140%; text-shadow: 1px 1px 3px #8f061d;"></div>
+<div id="out3572" style="font-size: 140%; text-shadow: 1px 1px 3px #8f061d;"></div>
+<div id="out3573" style="font-size: 140%; text-shadow: 1px 1px 3px #8f061d;"></div>
+
+
+<script>
+
+	let obj357 = {
+1: {
+		1: {
+				1: 111,
+				2: 112,
+				3: 113,
+			},
+		2: {
+				1: 121,
+				2: 122,
+				3: 123,
+			},
+		},
+
+2: {
+			1: {
+				1: 211,
+				2: 212,
+				3: 213,
+			},
+			2: {
+				1: 221,
+				2: 222,
+				3: 223,
+			},
+		},
+
+3: {
+			1: {
+				1: 311,
+				2: 312,
+				3: 313,
+			},
+			2: {
+				1: 321,
+				2: 322,
+				3: 323,
+			},
+		},
+	}
+
+
+
+	let sum3571 = 0;
+	let sum3572 = 0;
+	let sum3573 = 0;
+
+// вариант 1
+
+function work (ob) {
+	for (let elem in ob) {
+		let key = elem;
+		let value = ob[elem];
+
+		if (typeof(value)=='object') {
+			work(value);
+		} else {
+			sum3571+=value;
+		}
+	}
+}
+
+work(obj357);
+
+	// вариант 2
+
+
+	const sum1 = val =>
+		val instanceof Object
+			? Object.values( val ).reduce( ( acc, n ) => acc + sum1( n ), 0 )
+			: typeof val === 'number'
+				? val
+				: 0;
+
+				sum3572 = sum1( obj357 );
+
+	// вариант 3
+
+
+	function sum2 ( val ) {
+		let result = 0;
+
+		for ( const stack = [ val ]; stack.length; ) {
+			const n = stack.pop();
+			if ( n instanceof Object ) {
+				stack.push( ...Object.values( n ) );
+			} else if ( n === +n ) {
+				result += n;
+			}
+		}
+
+		return result;
+	}
+
+sum3573= sum2( obj357 ) ;
+
+	console.log( `вариант 1. sum3571 = ${ sum3571 }` );
+	console.log( `вариант 2. sum3572 = ${ sum3572 }` );
+	console.log( `вариант 3. sum3573 = ${ sum3573 }` );
+
+	document.getElementById( "out3571" ).innerHTML = `вариант 1. sum3571 = ${ sum3571 }`;
+		document.getElementById( "out3572" ).innerHTML = `вариант 2. sum3572 = ${ sum3572 }`;
+			document.getElementById( "out3573" ).innerHTML = `вариант 3.  sum3573 = ${ sum3573 } ПОКАЖИТЕ ВАШ ВАРИАНТ ИЗ УЧЕБНИКА. ЧЕРЕЗ FOR IN НЕ ПОЛУЧИЛОСЬ`;
+</script>
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+

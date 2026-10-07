@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 1.10 задачника JavaScript</title>
+</head>
+<body>
+<h1>Уровень 1.10 задачника JavaScript</h1>
+<h2>№1 Заполните массив случайными числами из промежутка от 1 до 100.</h2>
+	<p id="out1101"></p>
+	<p id="out1101_1"></p>
+
+<script>
+	let arr1101 = [];
+	while ( arr1101.length < 20 ) {
+		let r = Math.floor( Math.random() * 100 ) + 1;
+		if ( arr1101.indexOf( r ) === -1 ) arr1101.push( r );
+	}
+	console.log(arr1101);
+out1101.innerHTML= ` Вариант1 arr1101=[${ arr1101 }]`;
+	//2.
+	const nums1101 = new Set();
+	while ( nums1101.size !== 20 ) {
+		nums1101.add( Math.floor( Math.random() * 100 ) + 1 );
+	}
+
+	console.log( [ ...nums1101 ] );
+	out1101_1.innerHTML = `Вариант2 console.log( [ ...nums1101 ] )=[${[...nums1101]}]`;
+
+</script>
+
+<h2>№2 Дано некоторое число: 12345.
+Выведите в консоль все его символы с конца.</h2>
+<p id="out1102"></p>
+
+<script>
+	const num1102 = 12345;
+	console.log( Number( String( num1102 ).split( "" ).reverse().join( '' ) ) );
+	out1102.innerHTML = `12345. Переверните его ${ Number( String( num1102 ).split( "" ).reverse().join( '' ) ) } `;
+
+</script>
+
+<h2>№3 Дан некоторый массив, например, вот такой:
+[1, 2, 3, 4, 5, 6]
+По очереди выведите в консоль подмассивы из двух элементов нашего массива:
+[1, 2]
+[3, 4]
+[5, 6]</h2>
+<p id="out1103"></p>
+<p id="out1103_1"></p>
+<script>
+	let line1103 = [];
+
+	for ( let i = 1; i <= 6; i++ ) {
+		if ( line1103.length == 2 ) {
+			console.log( line1103 );
+			line1103 = [];
+		}
+		line1103.push( i );
+	}
+	console.log( line1103 );
+	out1103.innerHTML= line1103;
+	//3.2
+let arr1103 = [ 1, 2, 3, 4, 5, 6 ];
+
+	let size1103 = 2; //размер подмассива
+	let subarray1103 = []; //массив в который будет выведен результат.
+	for ( let i = 0; i < Math.ceil( arr1103.length / size1103 ); i++ ) {
+		subarray1103[ i ] = arr1103.slice( i * size1103, i * size1103 + size1103 );
+	}
+	console.log( subarray1103 );
+out1103_1.innerHTML=subarray1103;
+</script>
+
+<h2>№4 Даны два массива: let arr11041 = [1, 2, 3]; let arr11042 = [4, 5, 6]; Слейте эти массивы в новый массив: [1, 2, 3, 4, 5, 6]</h2>
+<p id="out1104"></p>
+<script>
+	let arr11041 = [ 1, 2, 3 ];
+	let arr11042 = [ 4, 5, 6 ];
+
+	var newArr1104 = arr11041.concat( arr11042 );
+	console.log( newArr1104 );
+out1104.innerHTML= `[${ newArr1104 }]`;
+
+</script>
+
+
+
+
+</body>
+</html>

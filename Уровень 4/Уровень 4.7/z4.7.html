@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 4.7 задачника JavaScript</title>
+</head>
+<body>
+<h1>Уровень 4.7 задачника JavaScript</h1>
+<h2>№1 Сделайте функцию, которая параметром будет принимать текст со словами, <br>
+	 а возвращать текст, в котором эти слова будут отсортированы в алфавитном порядке.</h2>
+<div471 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div471>
+
+<script>
+ function getSortStr(str) {
+	let arr = str.toLowerCase().split(' ').sort().join(' ');
+	console.log(arr);
+	document.querySelector('div471').innerHTML = arr
+ }
+
+ let str471 = `Сделайте функцию, которая параметром будет принимать текст со словами, а возвращать текст, в котором эти слова будут отсортированы в алфавитном порядке.`
+
+	getSortStr( str471 )
+</script>
+
+<h2>№2 Сделайте функцию, которая параметром будет принимать два массива и возвращать массив их общих элементов.</h2>
+	<div472 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div472>
+
+	<script>
+function getCommonArrayElements(arr1,arr2) {
+arr1.forEach(element => {//Метод .forEach() позволяет последовательно перебрать все элементы массива. В параметре он получает функцию, которая выполнится для каждого элемента массива
+	if (arr2.includes(element)) {
+		//Метод includes() экземпляров Array определяет, содержит ли массив определенное значение, возвращая true или false.
+		commonElements.push(element);
+	}
+});
+return commonElements;
+}
+
+let arr4721 = [1, 56, 3, 89, 5, 99, 120, 456, 45, 48,];
+let arr4722 = [ 1, 2, 3, 4, 5, 7, 99, 120, 45, ];
+const commonElements = [];
+
+	let test1 = getCommonArrayElements( arr4721, arr4722 );
+	console.log(test1);
+document.querySelector('div472').innerHTML =`[${test1}]` ;
+
+	</script>
+
+<h2>№3 Сделайте функцию, которая будет возвращать случайное число. Функция не должна возвращать одно и тоже число два раза
+подряд.</h2>
+<div473 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div473> 
+
+<script>
+
+	function* generateRandomIterable ( n, range ) {
+		//function* (ключевое слово function со звёздочкой) определяет функцию-генератор.
+		for ( let i = 0; i < n; i++ ) {
+			yield  Math.floor( ( Math.random() * range ) );
+		}
+	}
+	let quantity473 = 1;
+	let range473 = 1000000;
+
+	const randomArr = [ ...generateRandomIterable( quantity473, range473 ) ];
+	console.log( randomArr );
+	document.querySelector( 'div473' ).innerHTML = `[${ randomArr }]`;
+
+</script>
+
+<h2>№4 Сделайте функцию, которая параметром будет принимать массив и элемент и возвращать следующий за ним элемент. Смотрите
+пример: <br>
+let arr = [1, 2, 3, 4, 5];<br>
+<br>
+func(arr, 1); // 2<br>
+func(arr, 4); // 5<br>
+func(arr, 5); // 1</h2>
+<div474 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div4>
+
+	<script>
+
+function getTheNextArrayNumber(arr,num) {
+		const index = arr.indexOf( num );
+		if ( index >= 0 && index <= arr.length - 1 ) {
+			if (index === arr.length -1) {
+				return console.log( arr[ 0 ] );
+			} return console.log( arr[ index + 1 ]);
+		}
+	}
+
+	let arr474 = [ 1, 2, 3, 4, 5 ];
+
+	document.querySelector( 'div474' ).innerHTML = `2 <br> 5 <br>  1`;
+
+	getTheNextArrayNumber( arr474, 1 );
+	getTheNextArrayNumber( arr474, 4 );
+	getTheNextArrayNumber( arr474, 5 );
+
+	</script>
+
+</body>
+</html>

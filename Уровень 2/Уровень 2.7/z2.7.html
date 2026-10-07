@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 2.7 задачника JavaScript</title>
+	<style>
+		#print {
+			font-family: Verdana,
+				Geneva, Tahoma, sans-serif;
+			color: dodgerblue;
+			font-size: 20px;
+		}
+	
+		p {
+			font-size: 20px;
+		}
+	
+		pre {
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+<h1>Уровень 2.7 задачника JavaScript</h1>
+<h2>№1 Дана некоторая строка:'a bc def ghij'
+Переведите в верхний регистр все подстроки, в которых количество букв меньше или равно трем. В нашем случае должно
+получится следующее:'A BC DEF ghij'</h2>
+<p id="out271"></p>
+
+<script>
+	let str271 = 'a bc def ghij'
+
+	function toUpper ( str ) {
+		return (
+			str
+				.toUpperCase()
+				//.toLowerCase()
+				.split( " " )
+				.map( function( word ) 
+				{
+					return word.length <= 3? word.toUpperCase() : word.toLowerCase()	
+				} )
+				.join( " " )
+			)
+	}
+
+	let nowstr271= toUpper( str271);
+	console.log( nowstr271 );
+	out271.innerHTML = `Дана некоторая строка:'a bc def ghij. Переведите в которых количество букв меньше или равно трем = ${nowstr271}`;
+
+</script>
+
+<h2>№2 Дан символ. Узнайте, в каком регистре этот символ - в верхнем или нижнем.</h2>
+<p id="out272"></p>
+
+<script>
+
+	let symbol = "Y"//prompt("Введите символ" );
+	console.log('symbol = ',symbol)
+	let isUpperCase = symbol.toUpperCase() == symbol? console.log( "верхний регистр")  : console.log( "нижний регистр" )
+out272.innerHTML=`symbol = ${symbol}`;
+</script>
+
+<h2>№3 Дано некоторое число, например, такое:123789
+Удалите из этого числа все нечетные цифры. В нашем случае получится такой результат:28</h2>
+<p id="out273"></p>
+
+<script>
+let num273= 123789;
+
+	function Strin () {
+		let str273 = String( num273 );
+    let nowstr273="";
+
+		for ( var i = 0; i < str273.length; i++ )
+		 {if ( str273[ i ] % 2 == 0 ) {
+				 nowstr273 += str273[i];
+			 }; 
+			 console.log(+nowstr273);
+			 out273.innerHTML=nowstr273;
+			}
+	}
+	
+	Strin()
+
+
+</script>
+
+</body>
+</html>

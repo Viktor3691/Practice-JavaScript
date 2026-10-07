@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 2.8 задачника JavaScript</title>
+
+	<style>
+		#print {
+			font-family: Verdana,
+				Geneva, Tahoma, sans-serif;
+			color: dodgerblue;
+			font-size: 20px;
+		}
+	
+		p {
+			font-size: 20px;
+		}
+	
+		pre {
+			font-size: 16px;
+		}
+	</style>
+
+</head>
+
+<body>
+	
+<h1>Уровень 2.8 задачника JavaScript</h1>
+
+<h2>№1 Дана строка с буквами.<br> Проверьте, что в этой строке не более двух заглавных букв.</h2>
+<p id="out281"></p>
+
+	<script>
+let str281 = "Уровень 2.8 задачника JavaScript";
+
+	let reNotCapitals = /[^A-ZА-ЯЁ]/g;
+	let capitalsAmount = str281.replace( reNotCapitals, '' ).length;
+  if (capitalsAmount>2) {
+	console.log( `в этой строке - "${str281}" более двух заглавных букв` )
+	out281.innerHTML= `в этой строке - "${ str281 }" более двух заглавных букв`
+} else {
+	console.log(`в этой строке  - "${str281}" не более двух заглавных букв`  )
+	out281.innerHTML = `в этой строке  - "${ str281 }" не более двух заглавных букв`;
+}
+
+	</script>
+
+<h2>№2 Дана некоторая строка:'1 22 333 4444 22 5555 1'<br>
+Удалите из этой строки все подстроки, в которых количество символов больше трех.<br>
+ В нашем случае должно получится следующее:'1 22 333 22 1'</h2>
+<p id="out282"></p>
+
+<script>
+
+let str282 = '1 22 333 4444 22 5555 1';	
+
+let nowstr282=str282.split(' ').filter(e =>e.length <= 3).join(' ');
+
+console.log( `'${ nowstr282 }' ` );
+out282.innerHTML=`Удалите из этой строки ${str282} все подстроки больше трех ='${nowstr282}' `;
+</script>
+
+<h2>№3 Даны два массива: <br>
+let arr1 = [1, 2, 3];<br>
+let arr2 = ['a', 'b', 'c'];<br>
+Слейте эти массивы в новый массив следующим образом:<br>
+  [1, 2, 'a', 'b', 'c', 3]</h2>
+<p id="out283"></p>
+
+<script>
+let arr2831 = [ 1, 2, 3 ];
+let arr2832 = ['a', 'b', 'c'];
+let newArr283=[];
+
+let removed = arr2831.splice( 2, 1 );
+
+newArr283=arr2831.concat(arr2832).concat(removed)
+console.log(newArr283)
+out283.innerHTML=`новый массив [${newArr283}]`
+
+</script>
+
+
+
+
+
+</body>
+</html>

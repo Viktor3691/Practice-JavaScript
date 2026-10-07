@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 3.1 задачника JavaScript</title>
+
+</head>
+<body>
+<h1>Уровень 3.1 задачника JavaScript</h1>
+	<h2>№1 Дано некоторое число. <br>
+Проверьте, что цифры этого числа расположены по возрастанию.</h2>
+<p id="out311"></p>
+
+<script>
+	let num311 = 1234567;
+
+	 let arr311=num311.toString().split( "" );
+
+	function increasing ( s ) {
+		 let len = s.length;
+		  return [].every.call( s, function ( c, i ) {
+				 return ( ++i === len ) || c < s[ i ] 
+				} ); }
+
+    let res311= increasing( arr311 )
+			console.log( ` ${num311} по возрастанию  = ${res311} `);
+	document.querySelector( "#out311" ).innerHTML = ` ${ num311}  по возрастанию = ${ res311 } `
+</script>
+
+<h2>№2 Дан массив:[1, '', 2, 3, '', 5] <br>
+Удалите из массива все пустые строки.</h2>
+<p id="out312"></p>
+
+<script>
+let arr312= [ 1, '', 2, 3, '', 5 ];
+
+	let arr3121 = arr312.filter( function ( entry ) { return /\S/.test( entry ); } );
+
+console.log(` Удалите из массива все пустые строки [${arr312}] = [${arr3121}] `);
+document.querySelector( "#out312" ).innerHTML = ` Удалите из массива все пустые строки [${ arr312 }] = [${ arr3121 }] `
+</script>
+
+<h2>№3 Дан массив:<br>
+[<br>
+[2, 1, 4, 3, 5],<br>
+[3, 5, 2, 4, 1],<br>
+[4, 3, 1, 5, 2],<br>
+]<br>
+Отсортируйте элементы в каждом подмассиве.</h2>
+<p id="out313"></p>
+
+<script>
+let arr313 = [
+[2, 1, 4, 3, 5,],
+[3, 5, 2, 4, 1,],
+[4, 3, 1, 5, 2,],
+]
+
+	for ( let i = 0; i < arr313.length; i += 1 ) {
+		arr313[ i ].sort( ( a, b ) => a - b )
+	}
+
+	console.log( arr313 )
+	document.querySelector( "#out313" ).innerHTML = arr313;
+</script>
+
+<h2>№4 Даны два массива:<br>
+let arr1 = [1, 2, 3];<br>
+let arr2 = [1, 2, 3, 4, 5];<br>
+Удалите из большего массива лишние элементы с конца так,<br>
+ чтобы длины массивов стали одинаковыми.</h2>
+<p id="out314"></p>
+
+<script>
+	let arr3141 = [ 1, 2, 3 ];
+	let arr3142 = [1, 2, 3, 4, 5];
+
+	let arr314 = arr3142.splice( -2 );
+	console.log( `arr2 =[${ arr3142 }]` )
+	document.querySelector( "#out314" ).innerHTML = `arr2 =[${ arr3142 }]`
+</script>
+
+</body>
+</html>

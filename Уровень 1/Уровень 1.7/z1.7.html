@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 1.7 задачника JavaScript</title>
+	<style>
+		#print {
+			font-family: Verdana,
+				Geneva, Tahoma, sans-serif;
+			color: dodgerblue;
+			font-size: 20px;
+		}
+	
+		p {
+			font-size: 20px;
+		}
+	
+		pre {
+			font-size: 20px;
+		}
+	</style>
+</head>
+
+<body>
+
+<h1>Уровень 1.7 задачника JavaScript</h1>
+<h2>№1 Дана строка:'abcde'
+Получите массив букв этой строки.</h2>
+<p id="out171"> </p>
+
+<script>
+const str171= 'abcde';
+console.log( str171.split( "" ) );
+out171.innerHTML =`массив букв этой строки-[${ str171.split( "" ) }]`
+</script>
+	
+<h2>№2 Дано некоторое число: 12345. 
+Получите массив цифр этого числа.</h2>
+<p id="out172"></p>
+
+<script>
+const num172= 12345;
+console.log( String( num172 ).split( "" ) );
+out172.innerHTML=`массив цифр этого числа [${ String( num172 ).split( "" ) }]`
+</script>
+
+<h2>№3 Дано некоторое число: 12345. Переверните его: 54321</h2>
+<p id="out173"></p>
+
+<script>
+const num173= 12345;
+	console.log(Number (String( num173 ).split( "" ).reverse().join('')) );
+	out173.innerHTML=`12345. Переверните его ${ Number( String( num173 ).split( "" ).reverse().join( '' ) ) } `;
+</script>
+<h2>№4 Дано некоторое число: 12345. Найдите сумму цифр этого числа.</h2>
+<p id="out174"></p>
+
+<script>
+//const num174= 12345;
+//const arr174=String(num174).split('');
+//let sum174=0;
+//console.log(arr174);
+
+//for (let i=1; i<=arr174.length; i++) {
+//sum174+=i;
+//console.log(sum174)
+//out174.innerHTML= `суммa цифр этого числа ${sum174}` ;
+//}
+
+	const num174 = 12345;
+		let sum174 = num174
+			.toString()
+			.split( '' )
+			.map( Number )
+			.reduce( function ( a, b ) {
+				return a + b;
+			}, 0 );
+
+	console.log( sum174 );
+	out174.innerHTML = `суммa цифр этого числа ${ sum174 }`;
+
+</script>
+</body>
+</html>

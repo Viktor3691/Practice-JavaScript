@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уровень 5.5 задачника JavaScript</title>
+</head>
+<body>
+<h1>Уровень 5.5 VillerOrenburg</h1>
+<a href="/" title="Посмотреть">Немного текста</a>
+<pre>№1 Дан инпут, кнопка и три абзаца. В инпут вводится дата в формате 2025-12-31. По нажатию на кнопку выведите в первый абзац
+год, во второй абзац - месяц, в третий день. </pre>
+
+
+<input type="date" id="date5.1" >
+<button id="b.5.1">click</button>
+<p id="p5.11" >год</p>
+<p id="p5.12">месяц</p>
+<p id="p5.13">день</p>
+<hr>
+<script>
+
+let btn51=document.getElementById('b.5.1').onclick= function () {
+    let vvod=document.getElementById('')
+    let input51=document.getElementById('date5.1') ;
+
+
+        const arrVvodValue = input51.value.split('-');
+
+    let p511 = document.getElementById('p5.11').innerHTML = arrVvodValue[0];
+    let p512 = document.getElementById('p5.12').innerHTML = arrVvodValue[1];
+    let p513 = document.getElementById('p5.13').innerHTML = arrVvodValue[2];
+};
+
+</script>
+
+<pre>№2 Даны два инпута и кнопка. В инпуты вводятся числа. По нажатию на кнопку заполните массив целыми числами от первого введеного числа до последнего.</pre>
+
+<input type="number" value="11" id="vv521">
+<input type="number" value="25" id="vv522">
+
+<button id="b521">click</button>
+<p id="p52">массив</p>
+<hr>
+
+
+<script>
+let  b522= document.getElementById('b521').onclick=function () {
+    let arr52=[];
+
+    let vv521 = document.getElementById('vv521').value;
+    let vv522 = document.getElementById('vv522').value;
+
+
+for (let i = vv521; i <= vv522; i++) {
+arr52.push(i); }
+console.log(arr52);
+ let p52 = document.getElementById('p52').innerHTML=arr52;
+};
+
+</script>
+
+<pre>№3 Дан инпут, абзац и кнопка. В инпут вводится строка. По нажатию на кнопку выведите в абзац последний символ введенной
+строки.</pre>
+<input type="text" id="vv53" value="str">;
+<p  id="p53">абзац</p>
+<button id="b53">click</button>
+<hr>
+
+<script>
+
+let b53=document.getElementById('b53').onclick=function() {
+let vv53=document.getElementById('vv53');
+let p53=document.getElementById('p53');
+
+}
+
+</script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 1.8 задачника JavaScript</title>
+	<style>
+		#print {
+			font-family: Verdana,
+				Geneva, Tahoma, sans-serif;
+			color: dodgerblue;
+			font-size: 20px;
+		}
+	
+		p {
+			font-size: 20px;
+		}
+	
+		pre {
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+<h1>Уровень 1.8 задачника JavaScript</h1>
+<h2>№1 Заполните массив целыми числами от 1 до 10.</h2>
+<p id="out181"></p>
+<script>
+let	arr181=[];
+for (let i = 1; i<=10; i++) {
+arr181.push(i);
+console.log(arr181);
+
+}
+out181.innerHTML=`arr181=[${arr181}]`;
+</script>
+
+<h2>№2 Заполните массив четными числами из промежутка от 1 до 100.</h2>
+<p id="out182"></p>
+<script>
+	let arr182=[];
+for (let i =1; i<=100; i++) {
+	if (i%2==0) {
+		arr182.push(i);
+	}
+console.log(arr182)	
+out182.innerHTML= `arr182=[${ arr182 }]`
+}
+</script>
+
+<h2>№3 Дан массив с дробями: [1.456, 2.125, 3.32, 4.1, 5.34]
+Округлите эти дроби до одного знака в дробной части.</h2>
+<p id="out183"></p>
+
+<script>
+let arr183= [ 1.456, 2.125, 3.32, 4.1, 5.34 ];
+let res183 = arr183.map( ( ele ) => +ele.toFixed( 1 ) );
+	console.log( res183 );
+	out183.innerHTML= `res183=[${ res183 }]`;
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

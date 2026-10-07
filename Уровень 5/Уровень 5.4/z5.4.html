@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уровень 5.4 задачника JavaScript</title>
+</head>
+<body>
+<h1>Уровень 5.4 VillerOrenburg</h1>
+
+<h2>№1 Даны абзацы с текстом. Сделайте так, чтобы по нажатию на любой абзац его текстом становилось значение '!'.</h2>
+
+<p class="out1"> абзац с текстом</p>
+<p class="out1"> абзац с текстом</p>
+<p class="out1"> абзац с текстом</p>
+
+<script>
+
+   let links = document.querySelectorAll('.out1');
+    for (let p = 0; p < links.length; p++) {
+        let paragraph = links[p];
+        paragraph.addEventListener('click', function () {
+            paragraph.innerText = "!!!!";
+        });
+    }
+
+</script>
+<hr>
+
+<h2>№2 Даны ссылки и кнопка. По нажатию на кнопку получите массив атрибутов href ссылок.</h2>
+
+<a href="https://www.google.ru">ссылка 1</a><br>
+<a href="https://stackoverflow.com">ссылка 2</a><br>
+<a href="https://metanit.com">ссылка 3</a><br>
+<br>
+<button id="submit">Click</button>
+<p id="tutorial"></p>
+
+<script>
+
+         document.getElementById('submit').onclick = function () {
+                let anchor = document.querySelector("a")
+                document.getElementById("tutorial").innerHTML = (anchor.getAttribute('href'));
+            }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

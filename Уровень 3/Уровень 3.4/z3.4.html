@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 3.4 задачника JavaScript</title>
+</head>
+<body>
+<h1>Уровень 3.4 задачника JavaScript</h1>
+<h2>№1 Выведите в консоль все числа в промежутке от 10 до 1000, <br>
+	 у которых первая цифра четная.</h2>
+	<div id="out341" style="font-size:120%;text-shadow: 1px 1px 2px #8f061d;"></div>
+<div id="out3411" style="font-size:120%;text-shadow: 1px 1px 2px #8f061d;"></div>
+	<script>
+
+		for ( let i = 10; i <= 1000; i++ ) {
+			let str = String( i ); // преобразуем число в строку
+
+			if (( str[ 0 ]%2 == 0)) {
+				console.log( `первая цифра четная ${ i}`);
+				document.getElementById( "out341" ).innerHTML = `первая цифра четная ${ i }`;
+			}
+		}
+
+		for ( let i = 10; i <= 1000; i++ ) {
+			let str = String( i ); // преобразуем число в строку
+
+
+			if ( ( str[ str.length - 2 ] % 2 == 0 ) ) {
+				console.log( `предпосленяя четная ${ i }` );
+				document.getElementById( "out3411" ).innerHTML = `предпосленяя четная ${ i }  вот тебе и ну да)))) шутник`;
+			}
+
+		}
+
+	</script>
+
+<h2>№2 Дан некоторый массив, например, вот такой: [1, 2, 3, 4, 5, 6] . <br>
+Поменяйте местами пары элементов этого массива: [2, 1, 4, 3, 6, 5]</h2>
+
+<div id="out342" style="font-size: 120%; text-shadow: 1px 1px 2px #8f061d;"></div>
+
+<script>
+let arr342= [ 1, 2, 3, 4, 5, 6 ];
+
+	let num3420 = arr342[ 0 ];
+	let num3421 = arr342[ 1 ];
+	let num3422 = arr342[ 2 ];
+	let num3423 = arr342[ 3 ];
+	let num3424 = arr342[ 4 ];
+	let num3425 = arr342[ 5 ];
+	
+
+	arr342[ 0 ] = num3421;
+	arr342[ 1 ] = num3420;
+	arr342[ 2 ] = num3423;
+	arr342[ 3 ] = num3422;
+	arr342[ 4 ] = num3425;
+	arr342[ 5 ] = num3424;
+
+
+	console.log( `Поменяйте местами пары элементов: [${ arr342 }]` );
+document.getElementById("out342").innerHTML = `Поменяйте местами пары элементов: [${ arr342 }]`;
+</script>
+
+<h2>№3 Дан следующий объект:</h2>
+<h3>
+	let obj = { <br>
+	1: {<br>
+	1: 11,<br>
+	2: 12,<br>
+	3: 13,<br>
+	},<br>
+	2: {<br>
+	1: 21,<br>
+	2: 22,<br>
+	3: 23,<br>
+	},<br>
+	3: {<br>
+	1: 24,<br>
+	2: 25,<br>
+	3: 26,<br>
+	},<br>
+	}<br>
+	Найдите сумму элементов этого объекта.
+</h3>
+<div id="out343" style="font-size: 120%; text-shadow: 1px 1px 2px #8f061d;"></div>
+
+<script>
+
+	let obj343 = {
+		1: {
+			1: 11,
+			2: 12,
+			3: 13,
+		},
+		2: {
+			1: 21,
+			2: 22,
+			3: 23,
+		},
+		3: {
+			1: 24,
+			2: 25,
+			3: 26,
+		},
+	}
+	
+let sum343=0;
+
+	for ( let key in obj343 ) {
+		console.log( obj343[ key ] );
+		let subObj = obj343[ key ];
+
+		for ( let subKey in subObj ) {
+			console.log( subObj[ subKey ] );
+			sum343 += subObj[ subKey ];
+		}
+	}
+	console.log(`Найдите сумму элементов этого объекта. sum343 = ${ sum343}`  );
+document.getElementById("out343").innerHTML = `Найдите сумму элементов этого объекта. sum343 = ${ sum343 }`;
+
+</script>
+
+
+	
+</body>
+</html>

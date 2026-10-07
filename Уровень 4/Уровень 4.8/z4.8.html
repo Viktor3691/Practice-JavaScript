@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 4.8 задачника JavaScript</title>
+</head>
+<body>
+	<h1>Уровень 4.8 задачника JavaScript</h1>
+
+	<h2>№1 Сделайте функцию, которая параметром будет принимать массив и возвращать случайный элемент этого массива.</h2>
+<div481 style="font-size: 140%; text-shadow: 1px 1px 2px red ;"></div481>
+
+<script>
+
+function getRandomElementOfTheArray(arr) {
+		let rand = Math.floor( Math.random() * arr.length );
+		 return arr[ rand ];
+	} 
+
+let arr481 =[ 1, 11, 23, 30, 313, 401, 440, 5010, 501 ];
+
+let test1 =	getRandomElementOfTheArray( arr481 );
+
+console.log(`[${arr481}]  -  ${test1}`);
+document.querySelector('div481').innerHTML = `[${ arr481 }] <br> ${ test1 }`;
+
+</script>
+
+<h2>№2 Сделайте функцию, которая параметром будет принимать массив и возвращать массив из N случайных элементов этого массива.</h2>
+<div482 style="font-size: 140%; text-shadow: 1px 1px 2px red ;"></div482>
+
+<script>
+
+	function getArrayOfN_RandomElementst ( arr, N ) {
+		const returnNumber = [ ...arr ].sort( () => 0.5 - Math.random() );
+		return returnNumber.slice( 0, N );
+	}
+
+	let arr482 = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, ];
+	let n482 = 2;
+
+	let test2 = getArrayOfN_RandomElementst( arr482, n482 )
+	let test4 = getArrayOfN_RandomElementst( arr482, n482 )
+
+	console.log( `[${ arr482 }]  -  [${ test2 }]` );
+	document.querySelector( 'div482' ).innerHTML = `[${ arr482 }] <br> [ ${ test2 }] <br> [ ${ test4 }]`;
+
+</script>
+
+<h2>№3 Сделайте функцию, которая параметром будет принимать массив и возвращать случайный элемент этого массива так, чтобы
+одинаковые элементы не возвращались два раза подряд.</h2>
+<div483 style="font-size: 140%; text-shadow: 1px 1px 2px red ;"></div483>
+
+<script>
+
+	function getArrayOfN_RandomElementst ( arr, N ) {
+		const returnNumber = [ ...arr ].sort( () => 0.5 - Math.random() );
+		return returnNumber.slice( 0, N );
+	}
+
+	let arr483 = [  4940, 5010, 3163, 401, 447, 5013, 1, 11, 23, 30, 313, 401, 440, 5010, 5061, 313, 4021, ];
+	let n483 = 1;
+
+	let test3 = getArrayOfN_RandomElementst( arr483, n483 )
+	console.log( `[${ arr483 }]  -  [${ test3 }]` );
+	document.querySelector( 'div483' ).innerHTML = `[${ arr483 }] <br> [ ${ test3 }]`;
+
+</script>
+
+<h2>№4 Сделайте функцию, которая будет возвращать массив простых чисел из заданного промежутка.</h2>
+<div484 style="font-size: 140%; text-shadow: 1px 1px 2px red ;"></div484>
+<div></div>
+<script>
+
+		//Алгоритм Эратосфена для нахождения всех простых чисел под n
+
+		function eratosthenes ( n1, n ) {
+			let array = [];
+			let output = [];
+			let limit = Math.sqrt( n );
+
+			for ( let i = 0; i < n; i++ ) {
+				array.push( true );
+			}
+			//Удалить кратные простые числа, начиная с 2, 3, 5,...
+			for ( let i = 2; i <= limit; i++ ) {
+				if ( array[ i ] ) {
+					for ( let j = i * i; j < n; j += i ) {
+						array[ j ] = false;
+					}
+				}
+			}
+			// Весь массив [i], имеющий значение true, является простыми числами
+			for ( let i = n1; i < n; i++ ) {
+				if ( array[ i ] ) {
+					output.push( i );
+				}
+			} console.log( output );
+			document.querySelector( 'div484' ).innerHTML = `[${ output }]`;
+			return output;
+
+		};
+
+		let min484 = 10;
+		let max484= 50;
+
+	eratosthenes( min484,max484 );
+
+</script>
+
+<h2>№5 Сделайте функцию, которая параметрами будет принимать любое количество чисел, а возвращать их сумму.</h2>
+<div485 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div485>
+
+<script>
+
+function getSumNumber(array) {
+	var sum = 0;
+	for ( let i = 0; i < array.length; i++ ) {
+		sum += array[ i ];
+	}
+	console.log( `числа ${arr485}  сумма= ${sum}` );
+document.querySelector('div485').innerHTML= `числа ${ arr485 }  <br> сумма= ${ sum }`
+}
+
+	let arr485 = [ 4940, 5010, 3163, 401, 313, 4021, ];
+
+	getSumNumber( arr485 );
+
+
+
+	function func ( ...nums ) {
+		let sum = 0;
+
+		for ( let num of nums ) {
+			sum += num;
+		}
+
+		return sum;
+	}
+
+	let result = func( 4940, 5010, 3163, 401, 313, 4021 );
+	console.log( result )
+
+</script>
+
+<h2>№6 Сделайте функцию, которая заполнит массив N случайными числами из заданного промежутка так, чтобы в массиве не было
+подряд двух одинаковых чисел.</h2>
+<div486 style="font-size: 140%; text-shadow: 1px 1px 2px  red;"></div486>
+
+<script>
+
+			function* generateRandom ( n, range ) {
+				for ( let i = 0; i < n; i++ ) {
+					yield Math.floor( ( Math.random() * range ) );
+				}
+
+			}
+			let quantity486 = 10;
+			let range486 = 1000;
+
+			const random6 = [ ...generateRandom( quantity486, range486 ) ];
+			const uniqueArr = random6.filter( ( item, index ) => random6.indexOf( item ) === index );
+
+			console.log( uniqueArr );
+			document.querySelector( 'div486' ).innerHTML = `[${ random6 }]`;
+
+
+
+
+	
+
+</script>
+
+<h2>№7 Сделайте функцию, которая заполнит массив N случайными числами из заданного промежутка так, чтобы числа не повторялись.</h2>
+<div487 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div487>
+
+<script>
+
+		function* generateRandomIterable ( n, range ) {
+			for ( let i = 0; i < n; i++ ) {
+				yield Math.floor( ( Math.random() * range ) );
+			}
+
+		}
+		let quantity487 = 10;
+		let range487 = 56;
+
+		const randomArr = [ ...generateRandomIterable( quantity487, range487 ) ];
+		let newArr = new Set( randomArr );
+
+		console.log( newArr );
+		document.querySelector( 'div487' ).innerHTML = `[${ randomArr }]`;
+
+</script>
+
+	
+</body>
+</html>

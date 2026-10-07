@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 3.9 задачника JavaScript</title>
+</head>
+<body>
+	<h1>Уровень 3.9 задачника JavaScript</h1>
+
+	<h2>№1 Дана строка. <br>
+		 Проверьте, что эта строка состоит только из цифр.</h2>
+		 <div id="out391" style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div>
+<div id="out3911" style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div>
+<div id="out3912" style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div>
+
+
+		 <script>
+let str391 = "1234567895";
+let str3911 = "123456ggg";
+let str3912 = "1 2 3 4 ю ё ё ё д д дююю789";
+
+
+	const exp391 = /[a-zA-Z_а-яА-Я]/; 
+
+	let res391 = exp391.test( str391 );
+if (res391==true) {
+	console.log( `строка "${ str391 } "есть буквы` );
+	document.getElementById("out391").innerHTML = `строка "${ str391 }" есть буквы`
+} else {
+	console.log(`строка "${str391}" только из цифр` );
+	document.getElementById( "out391" ).innerHTML = `строка "${ str391 }" только из цифр`
+}
+
+	let res3911 = exp391.test( str3911 );
+	if ( res3911 == true ) {
+		console.log( `строка ${ str3911 } есть буквы` );
+		document.getElementById( "out3911" ).innerHTML = `строка "${ str3911 }" есть буквы`
+	} else {
+		console.log( `строка ${ str3911 } только из цифр` );
+		document.getElementById( "out3911" ).innerHTML = `строка "${ str3911 }" только из цифр`
+	}
+
+	let res3912 = exp391.test( str3912 );
+	if ( res3912 == true ) {
+		console.log( `строка ${ str3912 } есть буквы` );
+		document.getElementById( "out3912" ).innerHTML = `строка "${ str3912 }" есть буквы`
+	} else {
+		console.log( `строка ${ str3912 } только из цифр` );
+		document.getElementById( "out3912" ).innerHTML = `строка "${ str3912 }" только из цифр`
+	}
+
+
+		 </script>
+
+<h2>№2 Дана строка. <br>
+	 Проверьте, что эта строка состоит только из четных цифр.</h2>
+<div id="out392" style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div>
+<div id="out3921" style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div>
+
+<script>
+let str392="24680";
+let str3921 = "123456789";
+
+const exp392 = /[13579]/; 
+
+	let res392 = exp392.test( str392 );
+if (res392==true) {
+	console.log( `строка "${ str392 }" включает НЕ четные числа` );
+document.getElementById("out392").innerHTML =  `строка "${ str392 }" включает НЕ четные числа`;
+} else {
+	console.log( `строка "${ str392 }" состоит только из четных цифр`);
+	document.getElementById( "out392" ).innerHTML = `строка "${ str392 }" состоит только из четных цифр`;
+}
+
+	let res3921 = exp392.test( str3921 );
+	if ( res3921 == true ) {
+		console.log( `строка "${ str3921 }" включает НЕ четные числа` );
+		document.getElementById( "out3921" ).innerHTML = `строка "${ str3921 }" включает НЕ четные числа`;
+	} else {
+		console.log( `строка "${ str3921 }" состоит только из четных цифр` );
+		document.getElementById( "out3921" ).innerHTML = `строка "${ str3921 }" состоит только из четных цифр`;
+	}
+
+</script>
+
+<h2>№3 Дан массив со числами. <br>
+	 Удалите из него числа, имеющие два и более нуля.</h2>
+<div id="out393" style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div>
+
+<script>
+
+let arr393 = [1, 20, 130, 140, 0, 505, 5005, 606, 6060,];
+
+	for ( let index = 0; index < arr393.length; index++ ) {
+		let element = arr393[ index ];
+		const exp393 = /^[0-9]{1}[0]{2}|^[0-9]{1}[0]{1}[0-9]{1}[0]{1}/; 
+		arr393 = arr393.filter( function ( entry ) { return !exp393.test( entry ); } );
+
+		console.log( ` массив arr393 = [1, 20, 130, 140, 0, 505, 5005, 606, 6060,]  числа, имеющие менее двух нулей[${ arr393 }] ` );
+document.getElementById("out393").innerHTML = ` массив arr393 = [1, 20, 130, 140, 0, 505, 5005, 606, 6060,]  числа, имеющие менее двух нулей [${ arr393 }] `
+	}
+	
+</script>
+
+<h2>№4 Найдите все числа от 1 до 1000, сумма цифр которых равна 13.</h2>
+<div id="out394" style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div>
+
+<script>
+	for ( let i = 1; i <= 1000; ++i ) {
+		let digits = i.toString().split( '' ),
+			sum = digits.map( ( d ) => parseInt( d ) ).reduce( ( a, v ) => a + v );
+		if ( sum  === 13 ) {
+			console.log( i, digits.join( ' + ' ), '=', sum, 'сумма цифр равна 13' );
+			document.getElementById("out394").innerHTML = i
+		}
+	}
+
+
+</script>
+
+<h2>№5 Сформируйте с помощью циклов следующий массив: <br>
+
+[<br>
+[1, 2, 3],<br>
+[4, 5, 6],<br>
+[7, 8, 9],<br>
+]<br>
+</h2>
+
+<div1 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div1>
+<div2 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div2>
+<div3 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div3>
+
+<script>
+
+	let depth = 3;
+	let rows = 3;
+	let cols = 1;
+	let arr395 = [];
+
+	for ( let i = 0; i < depth; i++ ) {
+		arr395[ i ] = [];
+		for ( let j = 0; j < rows; j++ ) {
+			arr395[ i ][ j ] = [];
+			arr395[ i ][ j ] = i * rows * cols + j * cols + 1;
+		
+
+		}
+	}
+		console.log( arr395 )
+
+	const html = arr395.map( ( item ) => `<div>[${ item }],</div>` ).join( '' );
+
+	document.querySelector( 'div1' ).innerHTML = "[";
+	document.querySelector( 'div2' ).innerHTML = html;
+	document.querySelector( 'div3' ).innerHTML = "]";
+
+</script>
+
+	
+</body>
+</html>

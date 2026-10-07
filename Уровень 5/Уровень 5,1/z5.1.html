@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уровень 5.1 задачника JavaScript</title>
+</head>
+<body>
+    <h1>Уровень 5.1 задачника JavaScript</h1>
+
+    <h2>№1 Даны два инпута, абзац и кнопка. В инпуты вводятся числа. По нажатию на кнопку выведите в абзац сумму этих чисел.</h2>
+
+<input type="number" id="number1" placeholder="Введите первое число">
+<input type="number" id="number2" placeholder="Введите второе число">
+<button onclick="calculateSum1()">Посчитать сумму</button>
+<p id="result1"></p>
+
+<script>
+    function calculateSum1() {
+        const num1 = parseFloat(document.getElementById('number1').value);//Функция parseFloat() может использоваться для обработки пользовательского ввода или для работы с данными, которые по умолчанию представлены в виде строк.
+        const num2 = parseFloat(document.getElementById('number2').value);
+        const sum = num1 + num2;
+        document.getElementById('result1').innerText = `Сумма чисел: ${sum}`;
+    }
+</script>
+<hr>
+
+<h2>№2 Дан абзац с числом и кнопка. По нажатию на кнопку возведите текст абзаца в квадрат.</h2>
+
+<p id="number 2">5</p>
+<button onclick="squareNumber2()">Возвести в квадрат</button>
+<p id="result 2"></p>
+
+<script>
+    function squareNumber2() {
+        const numberText = document.getElementById('number 2').innerText;
+        const number = parseFloat(numberText);
+        const squared = number * number;
+        document.getElementById('result 2').innerText = `Квадрат числа: ${squared}`;
+    }
+</script>
+<hr>
+
+<h2>№3 Дан абзацы с числами, абзац и кнопка. По нажатию на кнопку найдите сумму значений абзацев и запишите ее в абзац.</h2>
+
+<p id="number 3">123</p>
+<p id="number 3_1">321</p>
+<p id="result 3"></p>
+<button onclick="calculateSum3()">Посчитать сумму</button>
+
+<script>
+function calculateSum3() {
+const numberText1 = document.getElementById('number 3').innerText;
+const numberText2= document.getElementById('number 3_1').innerText;
+const num1 = parseFloat(numberText1);
+const num2 = parseFloat(numberText2);
+const sum3 = num1 + num2;
+document.getElementById('result 3').innerText =  `Сумма чисел: ${sum3}`;
+}
+
+</script>
+<hr>
+
+<h2>№4 Даны абзацы с числами. Сделайте так, чтобы по клику на любой абзац его значение возводилось в квадрат.</h2>
+
+<p4 style="font-size: 150%;">5</p4><br>
+<p4 style="font-size: 150%">10</p4><br>
+<p4 style="font-size: 150%">15</p4><br>
+<p4 style="font-size: 150%">20</p4><br>
+
+<script>
+    let links = document.querySelectorAll('p4');
+    for (let p = 0; p < links.length; p++) {
+        const paragraph = links[p];
+        paragraph.addEventListener('click', function () {
+            paragraph.innerText = Math.pow(paragraph.innerText, 2);
+        });
+    }
+</script>
+<hr>
+
+<h2>№5 Даны инпуты, в которые вводятся числа. Сделайте так, чтобы при  потере фокуса в любом инпуте его значение возводилось в
+квадрат.</h2>
+
+<input 5 type="number" id="elem" placeholder="Введите первое число">
+<input 5_1 type="number" id="elem1" placeholder="Введите второе число">
+
+<script>
+let elem = document.querySelector('#elem');
+elem.addEventListener('blur', function() {
+console.log(elem.value);
+let input = document.getElementById('elem').value;
+document.getElementById('elem').value = input**2;
+});
+
+let elem1 = document.querySelector('#elem1');
+elem1.addEventListener('blur', function () {
+console.log(elem1.value);
+ let input = document.getElementById('elem').value;
+document.getElementById('elem1').value = input ** 2;
+ });
+
+</script>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+<p>До полуночи осталось:    <span class="span8"></span></p>
+
+
+<script>
+    const getSpan8 = document.querySelector('.span8');
+
+    const addZero2 = argNum => {
+        if (argNum <= 9) {
+            argNum = '0' + argNum;
+        }
+        return argNum;
+    }
+
+    window.setInterval(() => {
+        const date8 = new Date();
+
+        const dateFor8 = new Date(
+            date8.getFullYear(),
+            date8.getMonth(),
+            date8.getDate() + 1,
+            0, 0, 0
+        )
+
+        let diff = Math.ceil((Date.parse(dateFor8) - date8.getTime()) / 1000);
+        let minutes = diff / 60;
+        let hours = minutes / 60;
+        let hoursOut = Math.floor(hours);
+        let minutesOut = Math.floor(minutes - (Math.floor(hours) * 60));
+        let secondsOut = diff % 60;
+
+        getSpan8.innerHTML = `${hoursOut}:${addZero2(minutesOut)}:${addZero2(secondsOut)}`;
+    }, 1000);
+</script>
+
+
+
+</body>
+</html>

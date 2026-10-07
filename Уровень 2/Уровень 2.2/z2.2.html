@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 2.2 задачника JavaScript</title>
+	<style>
+		#print {
+			font-family: Verdana,
+				Geneva, Tahoma, sans-serif;
+			color: dodgerblue;
+			font-size: 20px;
+		}
+	
+		p {
+			font-size: 20px;
+		}
+	
+		pre {
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+<h1>Уровень 2.2 задачника JavaScript</h1>
+<h2>№1 Дан массив с числами. Подсчитайте количество отрицательных чисел в этом массиве.</h2>
+<p id="out221"></p>
+
+<script>
+	let arr221 = [ 1, -2, 3, -4, 5, -6, 8, -10, -4, 5, -6, 8, -10, 1, -2, 3, -4, 5, -6, 8, ];
+	let neg_count221 = 0;
+	for ( let i = 0; i < arr221.length; i++ ) {
+		if ( arr221[ i ] < 0 ) 
+		neg_count221++;
+	}
+	console.log( `количество отрицательных чисел в этом [${arr221}] массиве -
+	${ neg_count221 }  ` );
+out221.innerHTML= `количество отрицательных чисел в этом [${ arr221}] массиве -
+	${ neg_count221 }  `;
+</script>
+
+<h2>№2 Дан массив с числами. Оставьте в нем только положительные числа.</h2>
+<p id="out222"></p>
+
+<script>
+let arr222=arr221;
+let pol_arr = [];
+
+for (let i=0; i<arr222.length; i++) {
+	if (arr222[i]>0) {
+		pol_arr.push(arr222[i])
+		
+	}
+}
+console.log( `Дан массив с числами [${ arr222 }] положительные числа - [${ pol_arr }]` );
+out222.innerHTML=`Дан массив с числами [${arr222}] положительные числа - [${pol_arr}]`
+</script>
+
+<h2>№3 Дана строка. Удалите предпоследний символ из этой строки</h2>
+<p id="out223"></p>
+
+<script>
+let str223="Удалите предпоследний символ из этой строки";
+
+let res2231 = str223.slice(0, -2);
+let res2232 = str223.slice( -1 );
+
+let res223 = res2231 + ' ' + res2232;
+console.log(res223);
+out223.innerHTML=res223;
+</script>
+
+<h2>№4 Дан некоторый массив, например, вот такой: [1, 2, 3, 4, 5, 6]</h2>
+	<p id="out224"></p>
+
+<script>
+let arr224 = [ 1, 2, 3, 4, 5, 6 ];
+let sum2241=0;
+let sum2242=0;
+
+for (let i=0; i<3; i++) {
+	sum2241+=arr224[i];
+	console.log(sum2241);
+}
+
+	for ( let i = 3; i < 6; i++ ) {
+		sum2242 += arr224[ i ];
+		console.log( sum2242 );
+	}
+let res224 = sum2241/sum2242;
+console.log('Поделите сумму первой половины элементов этого массива на сумму второй половины элементов',res224)
+out224.innerHTML=`Поделите сумму первой половины элементов этого массива на сумму второй половины элементов = ${res224}`;
+</script>
+
+</body>
+</html>

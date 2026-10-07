@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 4.9 задачника JavaScript</title>
+</head>
+<body>
+
+<h1>Уровень 4.9 задачника JavaScript</h1>
+
+<h2>№1 Сделайте функцию, которая будет возвращать сколько дней осталось до ближайшего 29 февраля.</h2>
+
+	<div491 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div491>
+
+<script>
+
+	let day491 = "29.02.2028";
+
+	function daysOfTheCurrentMonth ( ddmmyyyy ) {
+		let dd;
+		let mm;
+		let yyyy;
+		[ dd, mm, yyyy ] = ddmmyyyy.split( '.' );
+		const Till = new Date( yyyy, mm - 1, dd );
+		const Now = new Date();
+		return Math.floor( ( Till - Now ) / 86400000 );
+	}
+	console.log( `до ближайшего 29 февраля ${ daysOfTheCurrentMonth( day491) } дней` )
+	document.querySelector( 'div491' ).innerHTML = `до ближайшего 29 февраля  ${ daysOfTheCurrentMonth( day491 ) } дней`;
+
+</script>
+
+<h2>№2 Сделайте функцию, которая будет возвращать дату следующей масленницы, которая празднуется в последнее воскресенье зимы.</h2>
+<div492 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div492>
+
+
+
+<script>
+
+function getDay(time) {
+	const date1 = new Date();
+	const date2 = new Date( time );
+ let time1 = Math.floor( ( date2 ) / ( 1000 * 60 * 60 * 24 ) - ( date1 ) / ( 1000 * 60 * 60 * 24 ) )
+
+ 	console.log( `последнее воскресенье зимы ${ time1 } дней` )
+	document.querySelector( 'div492' ).innerHTML = `последнее воскресенье зимы ${ time1 } дней`;
+}
+
+let time492 = '2025-02-23';
+
+getDay( time492 );
+
+</script>
+
+
+<h2>№3 Сделайте функцию, которая будет возвращать случайный цвет.</h2>
+
+<button style="  display:block;
+  margin:auto;
+  height:100px;
+  width:50%;
+  text-shadow:1px 1px 0.5px #000;
+  border:solid 1px #000;
+  font-size:18px;
+  color:#ccc;
+  cursor:pointer;">Click Here</button>
+
+<script>
+
+	let button = document.getElementsByTagName( 'button' )[ 0 ];
+
+	function RBC ( e ) {
+		button.style.backgroundColor = '#' + Math.floor( Math.random() * 16777215 ).toString( 16 );
+	}
+
+	button.addEventListener( "click", RBC );
+	window.onload = RBC();
+
+</script>
+
+<h2>№4 Сделайте функцию, которая параметром будет принимать массив чисел и возвращать массив общих делителей всех чисел из
+переданного массива.</h2>
+<div494 style="font-size: 140%; text-shadow: 1px 1px  2px red;"></div494>
+
+<script>
+
+function getNumDivisors (arr) {
+	let min = Math.min( ...arr );
+	let commonDivisors = [];
+	for ( let i = 1; i <= min; i++ ) {
+		if ( arr.every( num => num % i === 0 ) ) {
+			commonDivisors.push( i );
+		}
+	}
+	console.log( commonDivisors );
+	document.querySelector('div494').innerHTML = `[${commonDivisors}]`
+}
+
+let arr494 = [ 20, 2000, 3000, ];
+
+getNumDivisors(arr494);
+
+</script>
+
+<h2>№5 Сделайте функцию, которая параметром будет принимать двухмерный массив чисел и возвращать массив максимальных чисел в
+каждом подмассиве.</h2>
+<div495 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div495>
+
+<script>
+ function getReturnDivisorsTwoArray(arr1,arr2) {
+	let min1 = Math.min( ...arr1 );
+	 let commonDivisors1 = [];
+	 for ( let i = 1; i <= min1; i++ ) {
+		 if ( arr1.every( num => num % i === 0 ) ) {
+			 commonDivisors1.push( i );
+		 }
+	 }
+
+	 let min2 = Math.min( ...arr2 );
+	 let commonDivisors2 = [];
+	 for ( let i = 1; i <= min2; i++ ) {
+		 if ( arr2.every( num => num % i === 0 ) ) {
+			 commonDivisors2.push( i );
+		 }
+	 }
+	 console.log( commonDivisors1,commonDivisors2 );
+	 document.querySelector( 'div495' ).innerHTML = `[${ commonDivisors1 } <br> [${ commonDivisors2 } ]`
+
+ }
+
+let arr4951 = [ 10, 3000, ];
+let arr4952 = [ 15, 1000, ];
+
+	getReturnDivisorsTwoArray( arr4951, arr4952 );
+
+</script>
+
+</body>
+</html>

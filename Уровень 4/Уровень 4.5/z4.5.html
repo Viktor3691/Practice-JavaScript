@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 4.5 задачника JavaScript</title>
+</head>
+<body>
+	<h1>Уровень 4.5 задачника JavaScript</h1>
+	
+<h2>№1 Дана переменная со строкой. Проверьте, что в эта строка <br>
+	 представляет собой число, то есть состоит только из цифр.</h2>
+<div451 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div451>
+
+<script>
+let str4511='123654789';
+let str4512 = '123D6D54k78l9';
+let str4513 = '1Ё2к3ар6н5ы4й78_б9а4б8а9й>';
+
+
+function onlyFromNumbers(str) {
+str = str.toString().split( '' );
+let exp = /[a-zA-Zа-яА-ЯёЁ_>]/;
+
+	let str1 = str.filter( function ( entry ) { return exp.test( entry ); } );
+	str1 = str1.join( '' )
+if (exp.test( str1 ) ) {
+	console.log( str1,'строка' );
+document.querySelector('div451').innerHTML=`${str1} строка`;
+} 
+}
+console.log( 'число' );
+document.querySelector( 'div451' ).innerHTML = `${str4511} ->число`;
+
+	onlyFromNumbers( str4511 );
+	onlyFromNumbers( str4512 );
+	onlyFromNumbers( str4513 );
+
+</script>
+
+<h2>№2 Дана переменная со строкой. Проверьте,<br>
+	 что в эта строка представляет собой дробь.</h2>
+<div452 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div452>
+
+
+<script>
+
+let str4521='1.56';
+let str4522 = '-1.57';
+
+
+	function stringFraction ( str ) {
+		//str = str.toString().split( '' );
+		let exp = /(\-?\d+)([.,](\d+))?/;
+		let match = str.match( exp );
+		let bool = Boolean( match );
+		if ( bool ) {
+			console.log( "Целая часть: " + match[ 1 ] );
+			console.log( "Дробная часть: " + match[ 3 ] );
+			document.querySelector( 'div452' ).innerHTML =`строка ${str4522}  Целая часть: ${ match[ 1 ]} <br> Дробная часть: ${ match[ 3 ]} `;
+
+		}
+	}
+
+ stringFraction( str4521 );
+ stringFraction( str4522 );
+
+</script>
+
+<h2>№3 Сделайте функцию, которая параметром будет принимать массив <br>
+	 с числами и возвращать второе по величине число.</h2>
+	 <div453 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div453>
+
+	 <script>
+
+	let arr453 = [ 0, 10, 402, 5050, 10230, 78, 45, 2101, 256, 11, 20, 405, 4055, ];
+
+	function getReturnsSecondLargestNumber(arr) {
+		arr= arr.sort( ( a, b ) => a - b );
+		console.log( arr );
+		
+		const deleted = arr.splice(1,1 );
+
+    document.querySelector( 'div453' ).innerHTML = `[ 0, 101, 402, 5050, 10230, 78, 45, 2101, 10, 256, 11, 20, 405, 4055, ] <br> ${deleted}`
+    console.log(deleted);
+
+	}
+	getReturnsSecondLargestNumber( arr453 );
+
+	 </script>
+
+<h2> №4 Сделайте функцию, которая параметрами будет принимать два числа <br>
+	 и возвращать массив, заполненный целыми числами от минимального параметра до максимального.</h2>
+<div454 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div454>
+
+<script>
+
+
+function* getMinMax(n1,n2) {
+		for ( let i = n1; i <= n2; i++ ) {
+			yield Math.floor( i);
+		}
+	}
+
+let num4541 = 7;
+let num4542 = 17;
+
+		const arr454 = [ ...getMinMax( num4541, num4542 ) ];
+		console.log( arr454 );
+		document.querySelector( 'div454' ).innerHTML = `[${ arr454 }]`;
+	
+</script>
+
+<h2>№5 Сделайте функцию, которая заполнит массив случайными латинскими буквами.</h2>
+<div455 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div455>
+
+<script>
+
+	function generateRandomString (str,n) {
+		while ( randomString.length < n ) {
+			index = Math.floor( Math.random() * str.length );
+			randomString += str[ index ];
+		}console.log(randomString);
+		document.querySelector('div455').innerHTML=randomString;
+	}
+
+		let str455 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+		let num455 = 16;
+		let randomString = "";
+
+	generateRandomString( str455,num455 );
+
+</script>
+
+<h2>№6 Сделайте функцию, которая будет возвращать сумму N первых чисел Фибоначчи.</h2>
+<div456 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div456>
+
+<script>
+
+	function fib ( n ) {
+		let a = 1;
+		let b = 1;
+		for ( let i = 3; i <= n; i++ ) {
+			let c = a + b;
+			console.log(c)
+			a = b;
+			b = c;
+		}
+		return b;
+	}
+
+let num4561=3;
+	let num4562 = 7;
+	let num4563 = 15;
+
+	let test1=( fib( num4561 ) );
+	console.log( ' test1',test1 );
+
+	let test2=( fib( num4562) );
+		console.log( ' test2', test2 );
+
+	let test3=( fib( num4563) );
+		console.log( ' test3', test3 );
+		
+document.querySelector('div456').innerHTML=`n = ${num4561} sum= ${test1} <br> n = ${num4562} sum= ${ test2} <br> n = ${num4563} sum= ${ test3}`
+
+
+</script>
+
+
+</body>
+</html>

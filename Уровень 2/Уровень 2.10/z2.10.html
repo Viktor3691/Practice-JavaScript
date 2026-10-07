@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 2.10 задачника JavaScript</title>
+	<style>
+		#print {
+			font-family: Verdana,
+				Geneva, Tahoma, sans-serif;
+			color: dodgerblue;
+			font-size: 20px;
+		}
+	
+		p {
+			font-size: 20px;
+		}
+	
+		pre {
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+
+<h1>Уровень 2.10 задачника JavaScript</h1>
+<h2>№1 Дана строка с буквами и цифрами. <br>
+	 Проверьте, что в этой строке не более трех букв.</h2>
+<p id="out2101"></p>
+
+<script>
+let str2101="out2101 ";
+
+	let rez2101 = new RegExp( "[a-zA-Z]", 'g' );
+
+	if ( str2101.match( rez2101 ).length <= 3 ) {
+		console.log( `в этой строке "${str2101}" не более трех букв` );
+		document.querySelector( "#out2101" ).innerHTML = `в этой строке "${ str2101 }" не более трех букв`;
+	} else {
+		console.log( `в этой строке "${ str2101 }"более трех букв` );
+		document.querySelector( "#out2101" ).innerHTML = `в этой строке "${ str2101 }"более трех букв`;
+	}
+	//Конструктор RegExp создаёт объект регулярного выражения для сопоставления текста с шаблоном.
+	//	g   глобальное сопоставление
+
+	//	i   игнорирование регистра при сопоставлении
+
+	//	m   сопоставление по нескольким строкам; символы начала и конца(^ и $ ) начинают работать по нескольким строкам( то есть, происходит сопоставление с началом или концом каждой строки( строки разделяются символами \n или \r ), а не только с началом или концом всей вводимой строки )
+
+</script>
+
+<h2>№2 Дано число. Получите первую четную цифру с конца этого числа.</h2>
+<p id="out2102"></p>
+
+	<script>
+let num2102=4561234561;
+
+	let arr2102 = num2102.toString().split( "" );
+	console.log(arr2102)
+
+	let newarr2102 = arr2102.filter( x => x %2==0 );
+
+ let res2102=newarr2102[newarr2102.length-1] 
+	console.log(` четная цифра с конца этого - ${num2102} числа = ${res2102 }`);
+  document.querySelector( "#out2102" ).innerHTML = `четная цифра с конца этого - ${ num2102 } числа = ${ res2102 }`
+	</script>
+
+<h2>№3 Дана некоторая строка:'abcde abcde abcde' <br>
+Замените в ней первый символ каждого слова на '!': <br>
+'!bcde !bcde !bcde'</h2>
+<p id="out2103"></p>
+
+<script>
+
+	let str2013= 'abcde abcde abcde';
+
+	function replacement ( str ) {
+		return str
+			.split( ' ' )
+			.map( function ( word ) {
+				return word[ 0 ]="!"+ word.substr( 1 );
+			} )
+			.join( ' ' );
+	}
+	let res2103= replacement( str2013 );
+
+	console.log(`Замените в строке "${str2013}" первый символ каждого слова на '!' = "${res2103}"`  );
+	document.querySelector( "#out2103" ).innerHTML = `Замените в строке"${ str2013 }" первый символ каждого слова на '!' = "${ res2103 }"` ;
+
+</script>
+
+<h2>№4 Дан массив с числами: [1, 2, 3, 3, 4, 5] <br>
+Проверьте, что в этом массиве есть два одинаковых элемента подряд.</h2>
+<p id="out2104"></p>
+
+<script>
+	
+	function isSame ( arr ) {
+			for ( let i = 1; i < arr.length; i++ ) {
+				if ( arr[ i ] === arr[ i - 1 ] ) {
+					document.querySelector( "#out2104" ).innerHTML =` ${ arr}  ${arr[i]} повторяется`
+					return ` [${ arr }]  ${ arr[ i ] } повторяется`;
+				}
+			}
+				document.querySelector( "#out2104" ).innerHTML = ` ${ arr} отсутствуют парные повторения элементов массива`
+			return `[${ arr}] отсутствуют парные повторения элементов массива `;
+		}
+		
+		console.log( isSame( [ 1, 2, 3, 3, 4, 5 ] ) );
+		console.log( isSame( [ 2, 4, 5, 7, 7 ] ) );
+		console.log( isSame( [ 2, 4, 7, 5, 7 ] ) );
+
+</script>
+
+
+</body>
+</html>

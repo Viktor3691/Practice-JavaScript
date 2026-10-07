@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уровень 5.3 задачника JavaScript</title>
+</head>
+<body>
+    <h1>Уровень 5.3 VillerOrenburg</h1>
+
+    <h2>№1 Дан абзац, инпут и кнопка. В инпут вводится число. По нажатию на кнопку выведите в абзац факториал введенного числа.</h2>
+
+<input type="number" id="number1" placeholder=" число">
+<button onclick="calculateFactorial();">кнопка  факториал </button>
+<p id="result1">факториал  числа</p>
+
+<script>
+function calculateFactorial() {
+let num1 =parseFloat(document.getElementById("number1").value);
+console.log(num1);
+let result =document.getElementById("result1")
+
+    function factorial(n) {
+        if (n === 0) {
+            return 1;
+        } else {
+            return n * factorial(n - 1);
+        }
+    }
+let test1 =  factorial(num1);
+result.innerHTML=test1;
+}
+
+</script>
+
+<h2>№2 Даны два инпута, кнопка и абзац. В инпуты вводятся целые числа. Определите, какое из введенных чисел больше и
+выведите его в абзац.</h2>
+
+<input type="number" id="number2" placeholder = "число 1 ">;
+<input type="number" id="number3" placeholder = "число 2">;
+<button onclick = "getMoreLess();"> кнопка больше </button>
+<p id="result2">абзац</p>
+
+
+<script>
+function getMoreLess() {
+let num1 = parseFloat(document.getElementById("number2").value);
+let num2 = parseFloat(document.getElementById("number3").value);
+let result = document.getElementById("result2");
+
+    function integer(a, b) {
+        if (a > 0 && b > 0 && a > b) {
+            console.log("Большее число равно " + a);
+            result.innerHTML =`число  ${a} больше `;
+        } else if (a > 0 && b > 0 && a < b) {
+             console.log("Большее число равно " + b);
+            result.innerHTML = `число   ${b}  больше`;
+        } else if (a === b && a > 0 && b > 0) {
+             console.log("Оба числа равны!")
+             result.innerHTML = `Оба числа равны!`;
+        } else {
+            console.log("Пожалуйста, добавьте целое число!");
+            result.innerHTML = `Пожалуйста, добавьте целое число!`;
+        }
+    }
+    integer(num1, num2);
+}
+
+</script>
+
+<h2>№3 Дана кнопка и инпут. В инпут вводится число. По нажатию на кнопку найдите сумму цифр введеного числа.</h2>
+
+<input type="number" id="number4" placeholder="число">;
+<button onclick="getSum();"> кнопка суммa</button>;
+<p id="result3">сумма цифр введеного числа</p>
+
+<script>
+function getSum() {
+let num1 = parseFloat(document.getElementById("number4").value);
+console.log(num1);
+let result = document.getElementById("result3");
+
+    function sumOfDigit(num) {
+        let sum = 0;
+        num.toString().split("").forEach(digit => {
+            sum += parseInt(digit);
+        });
+        return result.innerHTML = sum;;
+    }
+    sumOfDigit(num1);
+}
+
+</script>
+
+<h2>№4 Дан абзац, инпут и кнопка. В инпут вводится слово. По нажатию на кнопку переверните слово и запишите его в абзац.</h2>
+
+<input type="text" id ="text1" placeholder=" вводится слово">;
+<button onclick="getStr();">кнопка реверс</button>;
+<p id="result4">переверните слово</p>
+
+<script>
+    function getStr() {
+       let str = document.getElementById("text1");
+        let result = document.getElementById("result4");
+        let arr = str.value.split('');
+        arr.reverse();
+        let str1 = str.value;
+        let str2 = arr.join('');
+        result.innerHTML = 'Перевёрнутое слово: ' + str2 + '.';
+}
+
+</script>
+
+<h2>№5 Даны пустые абзацы и кнопка. По нажатию на кнопку заполните абзацы числами по порядку.</h2>
+
+    <p5>пустой абзац</p5><br>
+    <p5>пустой абзац</p5><br>
+    <p5>пустой абзац</p5><br>
+    <button onclick="btnClick5()">
+        кнопка
+    </button>
+    <script>
+        function btnClick5() {
+            const pElems = document.getElementsByTagName('p5');
+            for (let i = 0; i < pElems.length; i += 1) {
+                pElems[i].innerHTML = i + 1;
+            }
+        }
+    </script>
+
+    <h2>№6 Дан инпут, абзац и кнопка. В инпут вводится число. По клику на кнопку выведите в абзац факториал этого числа.</h2>
+
+    <input type="number" id="number6" placeholder="число">
+    <button onclick="getFactorial();" >кнопка</button>
+    <br>
+    <p6 id="result6">факториал</p6>
+
+<script>
+function getFactorial() {
+let num=parseFloat(document.getElementById("number6").value);
+let result =  document.getElementById("result6");
+
+    function factorial(n) {
+        if (n === 0) {
+            return 1;
+        } else {
+            return n * factorial(n - 1);
+        }
+    }
+    let test6 = factorial(num);
+    result.innerHTML = test6;
+}
+
+</script>
+
+
+</body>
+</html>

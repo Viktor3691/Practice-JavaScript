@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 4.6 задачника JavaScript</title>
+</head>
+<body>
+<h1>Уровень 4.6 задачника JavaScript</h1>
+	<h2>№1 Сделайте функцию, которая параметром будет принимать дату <br>
+		в формате год-месяц-день, и определять, существует ли такая 	дата или нет.</h2>
+	<div461 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div461> 
+
+<script>
+
+function isValidYearMonthDay( dateString, format ) {
+	let regex;
+
+	switch ( format ) {
+		case 'YYYY-MM-DD':
+			regex = /^\d{4}-\d{2}-\d{2}$/;
+			break;
+		case 'DD/MM/YYYY':
+			regex = /^\d{2}\/\d{2}\/\d{4}$/;
+			break;
+		case 'MM-DD-YYYY':
+			regex = /^\d{2}-\d{2}-\d{4}$/;
+			break;
+		default:
+			return false;
+	}
+
+	if ( !regex.test( dateString ) ) return false;
+
+	let parts, day, month, year;
+	switch ( format ) {
+		case 'YYYY-MM-DD':
+			[ year, month, day ] = dateString.split( '-' ).map( Number );
+			month--;
+			break;
+		case 'DD/MM/YYYY':
+			[ day, month, year ] = dateString.split( '/' ).map( Number );
+			month--;
+			break;
+		case 'MM-DD-YYYY':
+			[ month, day, year ] = dateString.split( '-' ).map( Number );
+			month--;
+			break;
+	}
+
+	const date = new Date( year, month, day );
+	return date.getFullYear() === year && date.getMonth() === month && date.getDate() === day;
+}
+
+let format1= 'YYYY-MM-DD';
+let format2 = 'DD/MM/YYYY'
+let format3 = 'MM-DD-YYYY';
+
+
+let newData1 = '1994-09-16';
+let newData2 = '26/03/1977';
+let newData3 = '11-10-2016';
+let newData4 = '1957-10-16';
+
+		let test1 = isValidYearMonthDay( newData1, format1 );
+		let test2 = isValidYearMonthDay( newData2, format1 );
+		let test3 = isValidYearMonthDay( newData3, format1 );
+		let test4 = isValidYearMonthDay( newData4, format1 );
+
+		console.log( test1 );
+		console.log( test2 );
+		console.log( test3 );
+		console.log( test4 );
+document.querySelector('div461').innerHTML=`${newData1} ${test1} <br> ${ newData2 } ${ test2} <br> ${ newData3 } ${ test3} <br> ${ newData4 } ${ test4}`;
+
+</script>
+
+<h2>№2 Сделайте функцию, которая сгенерирует строку заданной длины, <br>
+	 заполненную случайными латинскими буквами.</h2>
+<div462 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div462>
+
+<script>
+
+		function generateRandomString ( str, n ) {
+			while ( randomString.length < n ) {
+				index = Math.floor( Math.random() * str.length );
+				randomString += str[ index ];
+			} console.log( randomString );
+			document.querySelector( 'div462' ).innerHTML =`длина n =  ${ num462} строка = ${randomString}` ;
+		}
+
+		let str462 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+		let num462 = 45;
+		let randomString = "";
+		generateRandomString( str462, num462 );
+
+</script>
+
+<h2>№3 Сделайте функцию, которая параметром будет получать строку со словами,<br>
+	 а возвращать строку в верхнем регистре, состоящую из первых букв слов.</h2>
+	 <div463 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div463>
+
+	 <script>
+
+function showMessageStr (str) {
+	let str1 =str.split(' ');
+	//console.log( str1 );
+	let array = [];
+	for (let index = 0; index < str1.length; index++) {
+		array.push(str1[index].charAt(0).toUpperCase());
+	}
+array= array.join( ' ' );
+console.log(array);
+document.querySelector('div463').innerHTML = array;
+}
+
+let str463 = 'Тверь рыбинск елец пермь алмаата чернигов ёрмица воронеж';
+let str4631 = 'Воронеж иркуцк ленинград львов елецк рязань'
+
+showMessageStr( str463 );
+showMessageStr( str4631 );
+	 </script>
+
+<h2>№4 Сделайте функцию, которая параметром будет принимать массив <br>
+	 с числами и заменять каждое число на массив его делителей.</h2>
+<div464 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div464>
+
+<script>
+
+function getReplacingNumberWithDivisors(array) {
+	let num = array;
+	function dividers (n) {
+		let arr = [];
+		for (let index = 1; index < n; index++) {
+			if (n%index === 0) arr.push(index);
+		}
+		console.log( arr);
+		document.querySelector( 'div464' ).innerHTML = arr;
+		return arr;
+
+		
+	}
+ num.forEach((v,index,arr) => (arr[index] = dividers (v)));//v - значение текущего элемента, index = его индекс и arr = сам массив.
+}
+
+let arr464 = [ 102, 1970, ];
+getReplacingNumberWithDivisors( arr464 );
+
+</script>
+
+<h2>№5 Сделайте функцию, которая параметром будет принимать секунды,<br>
+	 а возвращать количество дней, часов, минут и секунд, <br>
+соответствующих этим секундам, в виде следующего объекта:<br>
+
+{<br>
+d: 12,<br>
+h: 10,<br>
+m: 59,<br>
+s: 59,<br>
+}
+</h2>
+<div465 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div465>
+
+<script>
+
+function getDayHourMinuteSecond (seconds) {
+	{
+			seconds = Number( seconds );
+		let d1 = Math.floor( seconds / ( 3600 * 24 ) );
+		let time1 = seconds / ( 3600 * 24 ) - Math.floor( seconds / ( 3600 * 24 ) );
+		
+		let h2 = Math.floor(time1*24)
+		let time2 = (time1 * 24) -  Math.floor( time1 * 24 );
+		//console.log( h2 );			
+			
+		let m3 = Math.floor( time2 * 60 )
+		let time3 = ( time2 * 60 ) - Math.floor( time2 * 60 );
+		//console.log( m3 );
+
+		let s4 = Math.floor( time3 * 60 )
+		let time4 = ( time3 * 60 ) - Math.floor( time3 * 60 );
+		//console.log( s4 );
+
+		let newTime = {
+			d: d1,
+			h: h2,
+			m: m3,
+			s: s4,
+		}
+				document.querySelector('div465').innerHTML=` ${second465} Second  <br> {d: 12, h: 10, m: 59, s: 59}`;
+			return console.log( newTime );
+			
+	}
+
+}
+
+let second465=1076399;
+
+	getDayHourMinuteSecond( second465 );
+
+</script>
+
+
+</body>
+</html>

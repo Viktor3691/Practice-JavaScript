@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 2.9 задачника JavaScript</title>
+	<style>
+		#print {
+			font-family: Verdana,
+				Geneva, Tahoma, sans-serif;
+			color: dodgerblue;
+			font-size: 20px;
+		}
+	
+		p {
+			font-size: 20px;
+		}
+	
+		pre {
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+<h1>Уровень 2.9 задачника JavaScript</h1>
+
+<h2>№1 Дано некоторое число:123456 <br>
+Найдите сумму пар цифр этого числа.<br>
+ В нашем случае имеется ввиду следующее: 12 + 34 + 56</h2>
+<p id="out291"></p>
+
+<script>
+let num291= 123456;
+
+	
+	let arr291 = num291.toString().split( "" );
+	console.log( arr291 );
+
+	let num2911 = arr291[ 0 ] + arr291[ 1 ];
+	console.log( num2911);
+
+	let num2912 = arr291[ 2 ] + arr291[ 3 ];
+	console.log( num2912 );
+
+	let num2913 = arr291[ 4 ] + arr291[ 5 ];
+	console.log( num2913 );
+	let sum291 = Number(num2911) + Number( num2912) + Number( num2913);
+	console.log( `sum291 = ${num2911} + ${num2912} + ${num2913} = ${sum291}` );
+  document.querySelector( "#out291" ).innerHTML= `sum291 = ${ num2911 } + ${ num2912 } + ${ num2913 } = ${ sum291 }`
+
+</script>
+
+<h2>№2 Дан массив с числами:[1, 2, 3, 4, 5] <br>
+Выведите в консоль элементы этого массива в обратном порядке.</h2>
+	<p id="out292"></p>
+
+<script>
+
+	let arr292= [ 1, 2, 3, 4, 5 ];
+	let newArr292=[];
+	newArr292=arr292.reverse().join( '' ).split( "" )
+	console.log(newArr292)
+	document.querySelector( "#out292" ).innerHTML =` newArr292=[${newArr292}]`;
+
+
+</script>
+
+
+</body>
+</html>

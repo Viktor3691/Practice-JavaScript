@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 3.8 задачника JavaScript</title>
+</head>
+<body>
+
+	<h1>Уровень 3.8 задачника JavaScript</h1>
+
+	<h2>№1 Дан массив со числами. <br>
+		 Проверьте, что все числа из этого массива содержат в себе цифру 3.</h2>
+<div id="out381" style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div>
+
+<script>
+let arr381=[302, 502, 533, 50453 ];
+
+for (let index = 0; index < arr381.length; index++) {
+	let num = arr381[index];
+	
+	let array = [];
+	while ( num > 0 ) {
+		array.unshift( num % 10 );
+		num = num / 10 | 0;
+	}
+	console.log(array)
+	let newArr381 = array.filter( n => n == 3);
+	
+	console.log( newArr381 )
+	if (newArr381.length>0) {
+		console.log( `число ${ arr381[ index ]} содержат в себе цифру 3`)
+		document.getElementById("out381").innerHTML= `число ${ arr381[ index ] } содержат в себе цифру 3`
+	} else { 
+		console.log( `в числе ${ arr381[ index ] }  цифры 3 НЕТ` )
+		document.getElementById( "out381" ).innerHTML = `в числе ${ arr381[ index ] }  цифры 3 НЕТ`
+	}
+	if (newArr381.length ==0) {
+
+	}
+}
+
+</script>
+
+<h2>№2 Дана строка в формате:'kebab-case' <br>
+Преобразуйте ее в формат:'snake_case'</h2>
+<div id="out382" style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div>
+
+<script>
+
+let str382 = 'kebab-case';
+
+let res382 = str382.replace( '-', '_' );
+ console.log(`формат: 'kebab-case' -> ${ res382}`);
+document.getElementById("out382").innerHTML= `формат:'kebab-case' -> ${ res382 }`;
+
+</script>
+
+<h2>№3 Дана строка в формате:'snake_case' <br>
+Преобразуйте ее в формат:'camelCase'</h2>
+<div id="out383" style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div>
+
+<script>
+
+	let str383 = 'snake_case';
+
+	let res383 = str383.replace( '_c', 'C' );
+	console.log( `формат: 'snake_case' -> ${ res383 }` );
+	document.getElementById( "out383" ).innerHTML = `формат:''snake_case' -> ${ res383 }`;
+
+</script>
+
+<h2>№4 Дана строка в формате: 'camelCase' <br>
+Преобразуйте ее в формат: 'snake_case'</h2>
+<div id="out384" style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div>
+
+	<script>
+	let str384 = 'camelCase';
+
+		let res384 = str384.replace( 'C', '_c' );
+			console.log( `формат: 'camelCase' -> ${ res384 }` );
+			document.getElementById( "out384" ).innerHTML = `формат:'camelCase' -> ${ res384 }`;
+
+	</script>
+
+	<h2>№5 Сформируйте с помощью циклов следующий массив: <br>
+	
+	[<br>
+	[1, 2, 3],<br>
+	[1, 2, 3],<br>
+	[1, 2, 3],<br>
+	[1, 2, 3],<br>
+	[1, 2, 3],<br>
+	]<br>
+</h2>
+
+<p1 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></p1>
+<p style="font-size: 140%; text-shadow: 1px 1px 2px red;"></p>
+<p2 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></p2>
+
+
+	<script>
+
+	let arr385 = [];
+
+		for ( let i = 0; i < 5; i++ ) {
+			arr385[ i ] = [];
+
+			for ( let j = 0; j < 1; j++ ) {
+				arr385[ i ][ j ] = [];
+
+				for ( let k = 0; k < 1; k++ ) {
+					arr385[ i ][ j ][ k ] = [];
+
+					for ( let l = 0; l < 3; l++ ) {
+						arr385[ i ][ j ][ k ][ l ] = l + 1;
+					}
+
+				}
+
+			}
+		}
+
+
+		const html = arr385.map( ( item ) => `<pre>[${ item }],</pre>` ).join( '' );
+
+	document.querySelector( 'p1' ).innerHTML = "[";
+	document.querySelector( 'p' ).innerHTML = html;
+	document.querySelector( 'p2' ).innerHTML = "]";
+
+	console.log( arr385 );
+	</script>
+
+
+
+</body>
+</html>

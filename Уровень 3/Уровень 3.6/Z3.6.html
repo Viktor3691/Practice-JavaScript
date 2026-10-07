@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 3.6 задачника JavaScript</title>
+</head>
+<body>
+<h1>Уровень 3.6 задачника JavaScript</h1>
+<h2>№1 Дан массив со числами. <br>
+	Удалите из него числа, состоящие более чем из трех цифр.</h2>
+<div id="out361" style="font-size: 140%; text-shadow: 1px 1px 2px #8f061d;"></div>
+
+<script>
+	let arr361 = [ 100000, 1000, 402, 5050, 10230, 7800, 45, 2101, 256, 101, 20, 405, 4055, ];
+
+	let newarr3611 = arr361.filter( n => n < 999 );
+
+console.log(`Дан массив со числами ${arr361}  итог = ${newarr3611}` )
+document.getElementById("out361").innerHTML = `Дан массив со числами ${ arr361 }  итог = ${ newarr3611 }`;
+
+</script>
+
+<h2>№2 Дано число, например, вот такое: let num = 12345; <br>
+Проверьте, что все цифры этого числа больше нуля.</h2>
+
+<div id="out362" style="font-size: 140%; text-shadow: 1px 1px 2px #8f061d;"></div>
+
+<script>
+
+	let num362 = 12345;
+
+	 let arr362= num362.toString().split( "" );
+	console.log( arr362 );
+
+	let over0 = arr362.filter( myFunction );
+
+	function myFunction ( value ) {
+		return value == "0";
+	} 
+if (over0 == "0") {
+		console.log(`В числе ${num362} есть 0 `  );
+		document.getElementById("out362").innerHTML = `В числе ${ num362 } есть 0 `
+} else {
+	console.log(  `все цифры этого числа ${ num362 } больше нуля` );
+	document.getElementById("out362").innerHTML = `все цифры этого числа ${num362} больше нуля`
+}
+	
+</script>
+
+	<h2>№3 Дан некоторый массив, например, вот такой:[123, 456, 789] <br>
+	Слейте все элементы этого массива в один массив, разбив их посимвольно:<br>
+	[1, 2, 3, 4, 5, 6, 7, 8, 9]</h2>
+
+<div id="out363" style="font-size: 140%; text-shadow: 1px 1px 2px #8f061d;"></div>
+
+<script>
+let arr363 = [ 123, 456, 789 ];
+
+	let newArr363= arr363.toString( ).split( "" ).map( Number ).filter( n => n >0 );
+console.log( `массив [${arr363}]  посимвольно [${newArr363}]`);
+document.getElementById("out363").innerHTML = `массив [${ arr363 }]  посимвольно [${ newArr363 }]`;
+</script>
+
+<h2>№4 Дан следующая структура: <br>
+
+let data = [<br>
+{<br>
+1: 11,<br>
+2: 12,<br>
+3: 13,<br>
+},<br>
+{<br>
+1: 21,<br>
+2: 22,<br>
+3: 23,<br>
+},<br>
+{<br>
+1: 24,<br>
+2: 25,<br>
+3: 26,<br>
+},<br>
+];<br>
+Найдите сумму элементов этой структуры.</h2>
+
+<div id="out364" style="font-size: 140%; text-shadow: 1px 1px 2px #8f061d;"></div>
+
+<script>
+	let data364 = [
+		{
+			1: 11,
+			2: 12,
+			3: 13,
+		},
+		{
+			1: 21,
+			2: 22,
+			3: 23,
+		},
+		{
+			1: 24,
+			2: 25,
+			3: 26,
+		},
+	];
+
+	const sum = val =>
+		val instanceof Object
+			? Object.values( val ).reduce( ( acc, n ) => acc + sum( n ), 0 )
+			: typeof val === 'number'
+				? val
+				: 0;
+
+let sum364 = sum( data364 )
+console.log( ` сумма элементов этой структуры sum364=${sum364}` );
+ 
+
+	function sum2 ( val ) {
+		let result = 0;
+		for ( const stack = [ val ]; stack.length; ) {
+			const n = stack.pop();
+			if ( n instanceof Object ) {
+				stack.push( ...Object.values( n ) );
+			} else if ( n === +n ) {
+				result += n;
+			}
+		}
+		return result;
+	}
+let sum3641= sum2( data364 );
+	console.log( ` 2 варииант sum3641=${ sum3641 }` );
+
+	document.getElementById( "out364" ).innerHTML = ` сумма элементов этой структуры sum364=${ sum364 } <br>  2 варииант sum3641=${ sum3641 } ` 
+</script>
+
+
+</body>
+</html> 

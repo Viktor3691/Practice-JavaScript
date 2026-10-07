@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 2.6 задачника JavaScript</title>
+	<style>
+		#print {
+			font-family: Verdana,
+				Geneva, Tahoma, sans-serif;
+			color: dodgerblue;
+			font-size: 20px;
+		}
+
+		p {
+			font-size: 20px;
+		}
+
+		pre {
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+<h1>Уровень 2.6 задачника JavaScript</h1>
+
+<h2>№1 Дана некоторая строка '0asd2fgh2jk2l 098gg7654 s5t7h9' с буквами и цифрами. <br>
+	 Получите массив позиций всех цифр из этой строки.</h2>
+<p id="out261"></p>
+
+<script>
+
+	let str261 = "0asd2fgh2jk2l 098gg7654 s5t7h9";
+
+	let arr261 = [];
+	for ( let i = 0; i < str261.length; i++ ) {
+		if ( str261[ i ] >= 0 ) arr261.push( i );
+	}
+	console.log( "arr261 =", arr261 );
+out261.innerHTML=`arr261 = [${arr261}]`;
+</script>
+
+<h2>№2 Дан массив с некоторыми числами, например, вот такой:
+[123, 456, 789]
+Напишите код, который перевернет числа в этом массиве по следующему принципу:
+[321, 654, 987]</h2>
+	<p id="out262"></p>
+
+<script>
+const arr262= [ 123, 456, 789 ];
+let nowArr262=[];
+
+	let subarray1 = +String( arr262[ 0 ] ).split( "" ).reverse().join( "" );
+	let subarray2 = +String( arr262[ 1 ] ).split( "" ).reverse().join( "" );
+	let subarray3 = +String( arr262[ 2 ] ).split( "" ).reverse().join( "" );
+
+
+	nowArr262.push( subarray1 )
+	nowArr262.push( subarray2 );
+	nowArr262.push( subarray3 );
+
+	console.log( "nowArr262",nowArr262 );
+	out262.innerHTML=`nowArr262=[${nowArr262}]`;
+</script>
+
+<h2>№3 Дана некоторая строка с числом:'1234567'
+Отделите тройки цифр пробелами, начиная с конца числа. В нашем случае должно получится следующее:
+'1 234 567'</h2>
+<p id="out263"></p>
+
+<script>
+let str263= '1234567'
+let nowstr263= parseFloat( str263 ).toFixed( 2 ).replace( /(\d)(?=(\d{3})+\.)/g, "$1 " ).replace( '.', ',' )
+console.log(nowstr263 );
+	out263.innerHTML=nowstr263;
+</script>
+
+<h2>№4 Дана некоторая строка:'AbCdE'
+Смените регистр букв этой строки на противоположный.
+ В нашем случае должно получится следующее:'aBcDe'</h2>
+<p id="out264"></p>
+
+<script>
+let str264= 'AbCdE';
+let nowstr264='';
+	function changeCase ( str ) {
+		return str
+			.split( "" )
+			.map
+			(
+			( el ) => el === el.toLowerCase() ? el.toUpperCase() : el.toLowerCase()
+			)
+			.join( "" );
+	}
+	//changeCase(str264);
+	nowstr264= changeCase( str264 );
+	console.log( nowstr264 );
+out264.innerHTML=`Смените регистр букв этой ${str264} строки на противоположный = ${nowstr264}`;
+</script>
+
+<h2>№5 Дан некоторый массив с числами, например, вот такой:[1, 2, 3, 4, 5, 6]
+Слейте пары элементов вместе:[12, 34, 56]</h2>
+<p id="out265"></p>
+
+<script>
+let arr265= [ 1, 2, 3, 4, 5, 6 ];
+
+	let res265 = [];
+
+	while ( arr265.length > 0 ) {
+		// массив уменьшается в цикле пока не достигнет нуля
+		let first = arr265.shift();
+		let second = arr265.shift();
+		let str = String( first ) + String( second );
+		res265.push( str );
+	}
+
+	res265 = res265.join( ", " );
+	console.log( `[${ res265 }]` );
+out265.innerHTML=`[${res265}]`;
+
+</script>
+
+<h2>№6 Дана некоторая строка со словами:'aaa bbb ccc eee fff'
+Сделайте заглавным первый символ каждого второго слова в этой строке.
+ В нашем случае должно получится следующее:
+'aaa Bbb ccc Eee fff'</h2>
+<p id="out266"></p>
+
+<script>
+let str266= 'aaa bbb ccc eee fff';
+
+	let newStr266 = str266.replace( "bbb", "Bbb" ).replace( "eee", "Eee" );
+	console.log( `"${ newStr266 }"` );
+out266.innerHTML=`"${newStr266}"`
+
+</script>
+</body>
+</html

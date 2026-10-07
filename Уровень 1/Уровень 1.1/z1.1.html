@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Уровень 1</title>
+	<!--<link rel="stylesheet" href="style.css">-->
+
+	<style>
+		*,
+		*::before,
+		*::after {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0 auto;
+			width: 1250px;
+			font-family: 'Times New Roman', Times, serif;
+			color: #000;
+			font-size: 14px;
+
+		}
+
+
+		#print {
+			font-family: Verdana,
+				Geneva, Tahoma, sans-serif;
+			color: dodgerblue;
+			font-size: 20px;
+		}
+
+		h2 {
+			padding: 20px 0 20px 20;
+			width: 1200px;
+			font-size: 20px;
+		}
+
+		pre {
+			font-size: 20px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<h1>Уровень 1</h1>
+	<br>
+	<h2>
+		1. Дано число. Проверьте, отрицательное оно или нет. Выведите об этом информацию в консоль.
+	</h2>
+	<p id="out_num1"></p>
+
+	<script>
+		let out_num1 = document.getElementById('out_num1');
+		let p1 = ' ';
+
+		let num1 = -54;
+		if (num1 > 0) {
+			p1 = 'положительное ';
+		} else if (num1 < 0) {
+			p1 = 'отрицательное ';
+		}
+		out_num1.innerHTML = `${num1} - ${p1}`;
+		console.log(`${num1}`, p1)
+
+	</script>
+
+
+	<h2>2. Дана строка. Выведите в консоль длину этой строки.</h2>
+	<p id="out_str2"></p>
+
+	<script>
+		let out_str2 = document.getElementById('out_str2');
+		let p2 = '';
+
+		//Использование свойства length
+
+		function lineLength(str2) {
+			return str2.length;
+		}
+
+		let str2 = "Дана строка. Выведите в консоль длину этой строки";
+		let len2 = lineLength(str2);
+		p2 = len2
+		out_str2.innerHTML = `${str2} = ${p2}`;
+		console.log(`${str2}`, p2)
+	</script>
+
+	<h3>Итеративный подход</h3>
+
+	<p id="out_str3"></p>
+
+	<script>
+		let str3 = str2;
+		function anIterativeApproach(str3) {
+			let length = 0;
+			for (let i = 0; i < str3.length; i++) {
+				length++;
+			}
+			return length;
+		}
+
+		let len3 = anIterativeApproach(str3);
+		p2 = len3
+
+		out_str3.innerHTML = `${str2} = ${p2}`;
+		console.log(`${str2} = ${p2}`);
+	</script>
+
+	<h3>Использование рекурсии</h3>
+	<p id="out_str4"></p>
+
+	<script>
+		let out_str4 = document.getElementById('out_str4');
+		let p3 = '';
+
+		let str4 = "Использование рекурсии"
+		function usingRecursion(str4) {
+			// Базовый вариант: если строка пуста, верните 0
+			if (str4 === "") {
+				return 0;
+			} else {
+				// Рекурсивный регистр: возвращает 1 плюс длину строки
+				//минус первый символ
+
+				return 1 + usingRecursion(str4.slice(1));
+				usingRecursion(str4) = p3
+			}
+		}
+
+		out_str4.innerHTML = `${str2} = ${usingRecursion(str4)}`;
+		console.log("Выведите в консоль длину этой строки", usingRecursion(str4));
+	</script>
+
+
+
+	<h3>С использованием оператора Spread и метода Reduc()</h3>
+	<p id="out_str5"></p>
+
+	<script>
+		const str5 = "С использованием оператора Spread и метода Reduc()";
+
+		function getStringLength(input) {
+			return [...input].reduce(count => count + 1, 0);
+		}
+
+		const length = getStringLength(str5);
+
+		out_str5.innerHTML = `${str5} = ${usingRecursion(str5)}`;
+		console.log(`Длина строки равна: ${length}`);
+	</script>
+
+
+	<h2>3. Дана строка. Выведите в консоль последний символ строки.</h2>
+
+	<h2>Метод str.charAt( str.length - 1 )</h2>
+	<p id="out_str6"></p>
+	<script>
+		//	Для вывода в консоль последнего символа строки можно использовать следующие методы:
+		//В этом подходе мы будем подсчитывать количество символов в данной строке, используя свойство str.length. Поскольку индексация начинается с 0, используйте str.charAt(str.length-1), чтобы получить последний символ строки.
+
+		let str6 = " использование метода charAt";
+		// Получение последнего символа с помощью char
+		let res6 = str6.charAt(str6.length - 1);
+
+		out_str6.innerHTML = `${str6} = ${res6}`;
+		console.log("последний символ строки 'использование метода charAt' ", res6);
+	</script>
+
+	<h2>Метод str.slice().</h2>
+	<p id="out_str7"></p>
+	<script>
+		//Используя метод str.slice(), вы можете извлечь последний символ строки, передав -1 в качестве аргумента. Это возвращает подстроку, начинающуюся с последнего символа до конца строки.
+
+		let str7 = "Метод str.slice(). Используя метод str.slice";
+
+		// Получение последнего символа с использованием метода среза
+		let res7 = str7.slice(-1);
+
+		out_str7.innerHTML = `${str7} = ${res7}`;
+		console.log(`${str7} = ${res7}`);
+	</script>
+
+
+	<h2>Метод str.length.</h2>
+	<p id="out_str8"></p>
+
+	<script>
+		//Используя индексацию строки с помощью str.length , вы можете получить доступ к последнему символу, обратившись к str[str.length – 1] . Этот подход напрямую нацелен на конечный индекс строки, что делает его простым и эффективным решением.
+
+		let str8 = "Метод str.length";
+		// Получение последнего символа с использованием str.length
+		let res8 = str8[str8.length - 1];
+
+		out_str8.innerHTML = `${str8} = ${res8}`;
+		console.log(`${str8} = ${res8}`);
+	</script>
+
+	<h2>Метод String.at().</h2>
+	<p id="out_str9"></p>
+
+	<script>
+		//Метод String.at() позволяет получить доступ к символам с определенными индексами, включая отрицательные индексы. Чтобы получить последний символ, используйте str.at (-1), который напрямую обращается к последнему символу, делая код кратким и современным.
+
+		let str9 = "Метод String.at";
+
+		let res9 = str9.at(-1);
+
+		out_str9.innerHTML = `${str9} = ${res9}`;
+		console.log(`${str9} = ${res9}`);
+	</script>
+
+
+	<h2>Метод String.match(). </h2>
+	<p id="out_str10"></p>
+
+	<script>
+		//может извлечь последний символ, используя регулярное выражение типа /.$/ . Шаблон соответствует последнему символу в строке.
+		let str10 = "Шаблон соответствует последнему символу в строке";
+
+		let res10 = str10.match(/.$/g);
+
+		out_str10.innerHTML = `${str10} = ${res10}`;
+		console.log(`${str10} = ${res10}`);
+	</script>
+
+
+	<h2>Метод Array.prototype.pop().</h2>
+	<p id="out_str11"></p>
+
+	<script>
+		//удаляет и возвращает последний элемент массива.
+		let str11 = "удаляет и возвращает последний элемент массива";
+
+		let arr = str11.split('');
+		let lastChar = arr.pop();
+
+		out_str11.innerHTML = `${str11}=${lastChar}`;
+		console.log(`${str11}=${lastChar}`);
+	</script>
+
+
+	<h2>4. Дано число. Проверьте, четное оно или нет.</h2>
+	<p id="out_num2"></p>
+
+	<script>
+		let num = 1015;
+
+		if (num % 2 == 0) {
+			out_num2.innerHTML = `четное ${num}`
+			console.log('четное', num);
+		} else {
+			out_num2.innerHTML = `нечетное ${num}`
+			console.log('нечетное', num);
+		}
+	</script>
+
+
+	<h2>Использование битовых операций</h2>
+	<p id="outNum2"></p>
+
+	<script>
+
+		//Можно также проверить четность с помощью битовых операций.Попробуем на практике.Пусть у нас есть следующее число:
+
+		let num2 = 12220;
+
+		if (num2 & 1 !== 0) {
+			outNum2.innerHTML = `нечетное ${num2}`
+			console.log(`нечетное ${num2}`);
+		} else {
+			outNum2.innerHTML = `четное ${num2}`
+			console.log(`четное ${num2}`);
+		}
+	</script>
+
+	<h2>Подход 1: использование оператора по модулю</h2>
+	<p id="podh1"></p>
+
+	<script>
+		//В этом методе мы используем оператор JavaScript по модулю (%), чтобы проверить, является ли число четным или нечетным в JavaScript. Мы оценим N % 2, и если результат равен 0, то число четное, в противном случае число нечетное.
+		// Возвращает true, если n равно четное, иначе нечетное
+		function isEven(n) {
+			return (n % 2 == 0);
+		}
+		let n = 101;
+		isEven(n) ? podh1.innerHTML = `${n} четное` : podh1.innerHTML = `${n} нечетное`;
+		isEven(n) ? console.log(`${n} четное`) : console.log(`${n} нечетное`);
+		//
+
+	</script>
+
+
+	<h2> Подход 2: использование побитового оператора &</h2>
+	<p id="podh2">
+		</pi>
+
+		<script>
+			//Лучшим решением является использование побитовых операторов.Нам нужно проверить, равен ли последний бит 1 или нет.Если последний бит равен 1, то число нечетное, в противном случае число четное.
+			function checkOddOrEven(n) {
+				if (n & 1 == 1) {
+					podh2.innerHTML = `${n} нечетное`;
+					return `${n} нечетное`;
+
+				} else {
+					podh2.innerHTML = `${n} четное`;
+					return `${n} четное`;
+				}
+			}
+			console.log(checkOddOrEven(12161));
+
+		</script>
+
+	<h2>Подход 3: использование побитового оператора OR(|)</h2>
+	<p id="podh3"></p>
+
+	<script>
+		//JavaScript Побитовый оператор OR(|) используется для сравнения двух операндов путем выполнения операции OR над отдельными битами операндов и возвращает true, даже если один из сравниваемых битов равен 1.
+		function checkOddOrEven(number) {
+			return (number | 1) === number ? `${number} нечетное ${podh3.innerHTML = `${number} нечетное`}` : `${number} четное ${podh3.innerHTML = `${number} четное`}`;
+		}
+
+		console.log(checkOddOrEven(14));
+
+		console.log(checkOddOrEven(1761));
+
+	</script>
+
+	<h2>Подход 4: использование троичного оператора</h2>
+	<p id="podh4"></p>
+
+	<script>
+		//Троичный оператор (?:) это сокращенный условный оператор, который вычисляет условие и возвращает одно из двух выражений на основе результата.
+		function checkOddOrEven(num) {
+			return num % 2 === 0 ? `${num}  ${podh4.innerHTML = "четное"}` : `${num}  ${podh4.innerHTML = " нечетное"}`;
+		}
+
+		console.log(checkOddOrEven(21));
+		console.log(checkOddOrEven(12));
+
+	</script>
+
+	<h2> 5. Даны два слова. Проверьте, что первые буквы этих слов совпадают.</h2>
+
+	<script>
+
+		//const str11 = "Капуста";
+		const str12 = "Карандаш";
+
+		console.log("console.log(str11[0])", str11[0]);
+		console.log("console.log(str12[0])", str12[0]);
+		if (str11[0] === str12[0]) {
+			console.log("буквы совпадают");
+		} else {
+			console.log("буквы Ne совпадают");
+		}
+
+
+	</script>
+
+	<h2>6.0Дано слово. Получите его последнюю букву. Если слово заканчивается на мягкий знак, то получите предпоследнюю
+		букву.
+	</h2>
+	<script>
+		let slovo = "тень"//[, лень, боль, моль, пыль];
+		if (slovo.slice(-1) !== "ь") {
+			console.log("последняя буква", slovo.slice(-1))
+		} else {console.log("последняя буква", slovo.slice(-2, -1))}
+
+	</script>
+
+
+
+
+
+
+
+</body>
+
+</html>

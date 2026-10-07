@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 4.3 задачника JavaScript</title>
+</head>
+<body>
+<h1>Уровень 4.3 задачника JavaScript</h1>
+<h2>№1 Сделайте функцию, которая параметром будет <br>
+	 принимать массив и удалять из него все дубли.</h2>
+<div431 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div431>
+<div4311 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div4311>
+<div4312 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div4312>
+	<script>
+
+//Итеративный подход
+//Код пробегает по массиву arr, проверяя, if uniqueArr содержит значение или нет. Если нет, то push значение в uniqueArr
+	function removeDuplicates ( arr ) {
+		const uniqueArr = [];
+
+		for ( let i = 0; i < arr.length; i++ ) {
+			if ( !uniqueArr.includes( arr[ i ] ) ) {
+				uniqueArr.push( arr[ i ] );
+			}
+		}
+		return uniqueArr;
+	}
+
+	let test1 = removeDuplicates( [ 1, 1, 2, 2, 3, 3, 4, 5, 4, 1, ] ); 
+	let test2 = removeDuplicates( [ 'a', 'b', 'a', 'c', 'b','a', 'c', 'b' ] ); 
+	console.log(test1);
+	console.log( test2);
+	document.querySelector('div431').innerHTML = `Итеративный подход <br> [ 1, 1, 2, 2, 3, 3, 4, 5, 4, 1, ] -[${test1}] <br>[ 'a', 'b', 'a', 'c', 'b','a', 'c', 'b' ] - [${test2}]<br>`;
+
+//Использование Set
+//Объект Set в JavaScript автоматически обеспечивает уникальность всех значений. Эту особенность можно использовать для удаления дубликатов из массива.
+	function removeDuplicates ( arr ) {
+		return [ ...new Set( arr ) ];
+	}
+
+	let test3 = removeDuplicates( [ 1, 2, 2, 3, 4, 4, 5, 6, 6, ] ); 
+	let test4 = removeDuplicates(  [ 'a', 'b', 'a', 'c', 'b', 'a', 'c', 'b' ] ); 
+
+	console.log( test3 );
+	console.log( test4);
+	document.querySelector( 'div4311' ).innerHTML =`Использование Set <br> [ 1, 2, 2, 3, 4, 4, 5, 6, 6, ]-[${test3}]  <br> [ 'a', 'b', 'a', 'c', 'b', 'a', 'c', 'b' ]-[${test4}] <br> `;
+
+//Использование метода filter
+//Другой способ удаления дубликатов — использование метода filter в сочетании с indexOf.
+
+	function removeDuplicates ( arr ) {
+		return arr.filter( ( item, index ) => arr.indexOf( item ) === index );
+	}
+
+	let test5= removeDuplicates( [ 1, 2, 2, 3, 4, 4, 5, 1, 2, 2, 3, 4, 4, ] );
+	let test6 = removeDuplicates( [ 'a', 'b', 'a', 'c', 'b', 'a', 'c', 'b', 'a', 'c', 'b', 'a', 'c', ] );
+
+		console.log( test5 );
+		console.log( test6);
+	document.querySelector( 'div4312' ).innerHTML = `Использование метода filter <br> [ 1, 2, 2, 3, 4, 4, 5, 1, 2, 2, 3, 4, 4, ]-[${test5}]  <br> [ 'a', 'b', 'a', 'c', 'b', 'a', 'c', 'b', 'a', 'c', 'b', 'a', 'c', ] [${test6}]`
+	</script>
+
+<h2>№2 Сделайте функцию, которая параметром будет принимать массив <br>
+	 и удалять из него все дубли, которые встречаются больше трех раз.</h2>
+<div432 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div432>
+
+<script>
+	let arr432=[ 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 5, 1, 2, 2, 3, 4, 4, ];
+
+	function skipsThreeTakes ( array, limiter = 3 ) {
+			let result =[];
+			let counter = new Map();
+			array.forEach( ( item ) => {
+				let prevCount = counter.get( item ) || 0;// это выражение, которое возвращает предыдущее значение подсчёта для элемента item, если оно уже есть в объекте counter, в противном случае устанавливает значение 0.
+				let count = prevCount + 1;
+				counter.set( item, count );//counter.set(item, count) устанавливает количество данного элемента в счётчике и возвращает обновлённый счётчик.
+				if ( count <= limiter ) {
+					result.push( item );
+				}
+			} )
+			return result;
+		}
+let test7= skipsThreeTakes( arr432, 3 );
+document.querySelector('div432').innerHTML= `[${ arr432}] <br> [${ test7 }]`
+		
+	console.log( ` [${test7}]` ) 
+
+</script>
+
+<h2>№3 Сделайте функцию, которая параметром будет принимать <br>
+	 массив и удалять из него одинаковые, рядом стоящие элементы.</h2>
+<div433 style="font-size: 140%; text-shadow: 1px 1px 2px red ; "></div433>
+
+<script>
+let arr433 = [ 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 5, 1, 2, 2, 3, 4, 6, 4, ];
+
+
+	function remAdjDups( arr, output = [] ) {
+		if ( !arr.length ) {
+			//console.log( "Результат перед возвратом: ", output );
+			return output;
+		}
+
+		if ( arr[ 0 ] === arr[ 1 ] ) {
+			arr.splice( 1, 1 );
+			return remAdjDups( arr, output );
+		}
+		else {
+			return remAdjDups( arr.slice( 1 ), output.concat( arr[ 0 ] ) );
+		}
+	}
+
+	let out = remAdjDups( arr433.slice() );
+
+	console.log( ` [${arr433 }] [${out}]`  );
+document.querySelector('div433').innerHTML= ` [${ arr433 }] <br> [${ out }]`
+
+
+
+
+</script>
+
+<h2>№4 Сделайте функцию, которая параметром будет принимать массив <br>
+с числами и возвращать максимальное и минимальное значение из этого массива в виде следующего объекта:<br>
+{ max: 9, min: 1,}</h2>
+<div434 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div4>
+
+<script>
+
+	let arr434 = [ 1, 2, 3, 4, 5, 1, 7, 8, 9, ];
+
+	function getMaxMin ( arr ) {
+		let min = Infinity;
+		let max = -Infinity;
+	for ( let i = 0; i < arr.length; i++ ) {
+			if ( arr[ i ] > max ) {
+				max = arr[ i ]
+			}
+			else if ( arr[ i ] < min ) {
+				min = arr[ i ]
+			}
+		}
+
+		return {  max: max, min: min, };
+	}
+
+	let test8 = getMaxMin( arr434 );
+
+	console.log( test8 );
+document.querySelector('div434').innerHTML= '{  max: 9, min: 1, }';
+
+</script>
+
+
+
+</body>
+</html>

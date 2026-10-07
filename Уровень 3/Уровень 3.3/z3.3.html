@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 3.3 задачника JavaScript</title>
+
+</head>
+<body>
+<h1>Уровень 3.3 задачника JavaScript</h1>
+<h2>№1 Дан массив со словами. <br>
+	 Удалите из него слова, состоящие более чем из трех символов.</h2>
+	<div id="out331" style="font-size:120%;text-shadow: 1px 1px 2px red;"></div>
+
+	 <script>
+arr331=[ 'Дан', 'массив',  'со',  'словами.', 
+'Удалите',  'из',  'него',  'слова',
+'состоящие',  'более',  'чем',  'из',  'трех',  'символов',  ];
+
+	const result331 = arr331.filter( ( word ) => word.length <= 3 );
+
+	console.log( `Дан массив со словами -  [${arr331}] слова меньше чем три символа [${ result331 }]` );
+	document.getElementById( "out331" ).innerHTML = `Дан массив со словами - [${ arr331 }] слова меньше чем три символа [${ result331 }]`;
+
+	 </script>
+
+<h2>№2 Дано некоторое число: 1357 <br>
+Проверьте, что все цифры этого числа являются нечетными.</h2>
+
+<div id="out332" style="font-size:120%;text-shadow: 1px 1px 2px red;"></div>
+<div id="out3321" style="font-size:120%;text-shadow: 1px 1px 2px red;"></div>
+
+<script>
+let num332= 1357;
+	
+num332=num332.toString().split('');
+console.log(num332)
+
+for (let index = 0; index < num332.length; index++) {
+	const element = num332[index];
+	console.log( element )
+if(element%2==0) {
+	arr332.push(element);
+	console.log( arr332 )
+}
+
+	function oddOrEven ( x ) {
+		return ( x & 1 ) ? "не четное" : "четное";
+	}
+
+	function checkNumber ( argNumber ) {
+		document.getElementById( "out332" ).innerHTML = `Число   ${ argNumber } - ${ oddOrEven( argNumber ) }`;
+		console.log(`Число   ${argNumber} - ${oddOrEven( argNumber )}`)
+	}
+
+	checkNumber( element );
+}
+
+	if ( arr332.length > 0 ) {
+		console.log( " НЕ все цифры этого числа  являются нечетными." );
+		document.getElementById( "out3321" ).innerHTML = " НЕ все цифры этого числа  являются нечетными"
+	} else { console.log( "все цифры этого числа являются нечетными.",
+		document.getElementById( "out3321" ).innerHTML = "все цифры этого числа являются нечетными"
+	 ) }
+
+</script>
+
+<h2>№3 Дано некоторое слово: 'abcba'<br>
+Проверьте, что это слово читается одинаково с любой стороны.</h2>
+<div id="out333" style="font-size:120%;text-shadow: 1px 1px 2px red;"></div>
+
+<script>
+let str333= 'abcba';
+
+	let str333Reverse = str333.split( "" ).reverse().join( "" );
+	if ( str333 === str333Reverse ) {
+		console.log(`слово '${str333}' читается одинаково с любой стороны.` );
+		document.getElementById( "out333" ).innerHTML= `слово '${ str333 }' читается одинаково с любой стороны.`
+	} else {
+		console.log(`слово '${ str333}' НЕ читается одинаково с любой стороны.` );
+		document.getElementById( "out333" ).innerHTML = `слово '${ str333 }' НЕ читается одинаково с любой стороны.`
+	}
+
+
+</script>
+
+<h2>№4 Дан массив: </h2>
+<h3>
+	[<br>
+	[<br>
+	[11, 12, 13],<br>
+	[14, 15, 16],<br>
+	[17, 17, 19],<br>
+	],<br>
+	[<br>
+	[21, 22, 23],<br>
+	[24, 25, 26],<br>
+	[27, 27, 29],<br>
+	],<br>
+	[<br>
+	[31, 32, 33],<br>
+	[34, 35, 36],<br>
+	[37, 37, 39],<br>
+	],<br>
+	]<br>
+	Найдите сумму элементов этого массива.
+</h3>
+
+
+<div id="out334" style="font-size:120%;text-shadow: 1px 1px 2px red;"></div>
+
+	<script>
+ let arr334= [
+		[
+			[ 11, 12, 13 ],
+			[ 14, 15, 16 ],
+			[ 17, 17, 19 ],
+		],
+		[
+			[ 21, 22, 23 ],
+			[ 24, 25, 26 ],
+			[ 27, 27, 29 ],
+		],
+		[
+			[ 31, 32, 33 ],
+			[ 34, 35, 36 ],
+			[ 37, 37, 39 ],
+		],
+	];
+
+	let sum334 = 0;
+
+	arr334 = arr334.flat( Infinity )
+
+	for ( let i = 0; i < arr334.length; i++ ) {
+		sum334 += arr334[ i ];
+	}
+
+	console.log( `суммa элементов этого массива sum334 = ${ sum334 }` );
+	document.getElementById( "out334" ).innerHTML = `суммa элементов этого массива sum334 = ${ sum334 }`
+
+	</script>
+
+
+
+</body>
+</html>

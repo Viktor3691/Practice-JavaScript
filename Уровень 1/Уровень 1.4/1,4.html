@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 1.4 задачника JavaScript</title>
+</head>
+<body>
+<h2>№1 Выведите в консоль все целые числа от 1 до 100.</h2>
+<p id="out_num"></p>
+
+<script>
+	let out_num = document.getElementById( 'out_num' );
+	let p = ' ';
+	for ( let i = 1; i <= 100; i = i + 1 ) {
+			p = p + i + ' ';
+		}
+	out_num.innerHTML = p;
+	console.log(p)
+</script>
+	
+<h2>№2 
+	Выведите в консоль все целые числа от -100 до 0.</h2>
+<p1 id="out_num1"></p1>
+
+<script>
+		let out_num1 = document.getElementById( 'out_num1' );
+		let p1 = ' ';
+		for ( let i = -100; i <=0; i = i + 1 ) {
+			p1 = p1 + i + ' ';
+		}
+		out_num1.innerHTML = p1;
+		console.log( p1 )
+	</script>
+
+<h2>№3 Выведите в консоль все целые числа от 100 до 1.</h2>
+<p2 id="out_num2"></p2>
+
+<script>
+	let out_num2 = document.getElementById( 'out_num2' );
+	let p2 = ' ';
+	for ( let i = 100; i >= 1; i = i - 1 ) {
+		p2 = p2 + i + ' ';
+	}
+	out_num2.innerHTML = p2;
+	console.log( p2 )
+</script>
+
+<h2>№4 Выведите в консоль все четные числа из промежутка от 1 до 100.</h2>
+<p3 id="out_num3"></p3>
+<script>
+
+	let out_num3 = document.getElementById( 'out_num3' );
+	let p3 = ' ';
+
+		for (let i = 1; i <= 100; i = i + 1 ) {
+			if ( i % 2 === 0 ) 
+			p3 = p3 + i + ' ';
+		}
+		out_num3.innerHTML = p3;
+		console.log( p3 )
+</script>
+
+<h2>№5 Выведите в консоль все числа кратные трем в промежутке от 1 до 100.</h2>
+<p4 id="out_num4"></p4>
+
+<script>
+
+	let out_num4 = document.getElementById( 'out_num4' );
+	let p4 = ' ';
+
+	for ( let i = 1; i <= 100; i = i + 1 ) {
+		if ( i % 3 === 0 )
+			p4 = p4 + i + ' ';
+	}
+	out_num4.innerHTML = p4;
+	console.log( p4 )
+</script>
+
+</body>
+</html>

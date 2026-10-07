@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 1.5 задачника JavaScript</title>
+	<style>
+		#print {
+			font-family: Verdana,
+				Geneva, Tahoma, sans-serif;
+			color: dodgerblue;
+			font-size: 20px;
+		}
+	
+		p {
+			font-size: 20px;
+		}
+	
+		pre {
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+<h2>№1 Найдите сумму всех целых чисел от 1 до 100.</h2>
+<p id="z1_5_1"></p>
+<script>
+let res1=0;
+for (let index = 0; index <= 100; index++) {
+res1=res1+index
+console.log("res1",res1)	
+
+}
+z1_5_1.innerHTML=`res1 = ${res1}`
+</script>
+
+<h2>№2 Найдите сумму всех целых четных чисел в промежутке от 1 до 100.</h2>
+<p id="z1_5_2"></p>
+
+<script>
+let res2=0;
+for (let index = 1; index <=100; index++) {
+	if (index%2==0) {
+		res2=res2+index;
+		console.log( `res2 = ${ res2 }` )		
+	}
+}
+z1_5_2.innerHTML= `res2 = ${ res2 }`
+</script>
+
+<h2>№3 Найдите сумму всех целых нечетных чисел в промежутке от 1 до 100.</h2>
+<p id="z1_5_3"></p>
+
+<script>
+let res3=0;
+for (let index = 1; index <= 100; index++) {
+	if(index%2==1){
+		res3=res3+index
+		console.log( `res3 = ${ res3 }` )
+	}
+}
+z1_5_3.innerHTML= `res3 = ${ res3 }`
+</script>
+
+<h2>№4 Даны два целых числа. Найдите остаток от деления первого числа на второе.</h2>
+<p id="z1_5_4"></p>
+	
+<script>
+const num1_5_4_1=56;
+const num1_5_4_2=27;
+let res4 = 0;
+res4 = num1_5_4_1%num1_5_4_2
+console.log( `res4 = ${ res4 }` );
+z1_5_4.innerHTML=	`res4 = ${ res4 }`
+</script>
+
+<h2>№5 Дана некоторая строка. Переберите и выведите в консоль по очереди все символы с конца строки.</h2>
+<p id="z1_5_5"></p>
+
+<script>
+let str1_5_5="Переберите и выведите в консоль по очереди все символы с конца строки";
+//Один из самых быстрых встроенных способов решения этой проблемы — разбить каждый символ в строке на элемент массива, перевернуть элементы в массиве и превратить элементы массива обратно в строку.
+
+//Мы будем использовать следующие методы:
+
+//	string.split() — разбивает каждый символ на индекс массива.
+//		string.reverse() — разворачивает элементы массива в обратном порядке.
+//			string.join() — объединяет все элементы массива в строку.
+
+
+	function reverseString ( str ) {
+		return str.split( '' ).reverse().join( '' );
+	}
+reverseString(str1_5_5);
+console.log( `${ reverseString( str1_5_5 ) }` )
+z1_5_5.innerHTML=`${reverseString(str1_5_5)}`
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 2.3 задачника JavaScript</title>
+	<style>
+		#print {
+			font-family: Verdana,
+				Geneva, Tahoma, sans-serif;
+			color: dodgerblue;
+			font-size: 20px;
+		}
+	
+		p {
+			font-size: 20px;
+		}
+	
+		pre {
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Уровень 2.3 задачника JavaScript</h1>
+	
+	<h2>№1 Даны два слова. Проверьте, что последняя буква первого слова совпадает с первой буквой второго слова.</h2>
+<p id="out231"></p>
+
+<script>
+
+	function feast ( str2311, str2312 ) {
+
+		var lastLetter = str2311.charAt( str2311.length - 1 );
+		var firstLetter = str2312.charAt( 0 );
+
+		if ( lastLetter === firstLetter ) {
+		out231.innerHTML= `последняя буква слова '${str2311}' и первая буква слова '${ str2312}' совпадает`	
+    console.log('совпадает')
+			return true
+		} else {
+			out231.innerHTML = `последняя буква слова '${ str2311 }' и первая буква слова '${ str2312 }' не совпадает`
+			console.log( 'не совпадает' );	
+			return false
+		}
+	}
+feast("трактор", "торт" );
+</script>
+
+<h2>№2 Дана некоторая строка. Найдите позицию третьего нуля в строке.</h2>
+<p id="out232"></p>
+
+<script>
+	const str231 = 'as0 098 wsd0 09870 dfghjk0 000 00000';
+	let indices = [];
+	for ( var i = 0; i < str231.length; i++ ) {
+		if ( str231[ i ] === "0" ) indices.push( i );
+	}
+	console.log( "позиция третьего нуля в строке =indices[ 2 ] ", indices[ 2 ] );
+out232.innerHTML=`"позиция третьего нуля в строке indices[ 2 ] = ${indices[2]}`;
+
+</script>
+
+<h2>№3 Даны числа, разделенные запятыми:'12,34,56'
+Найдите сумму этих чисел.</h2>
+<p id="out233"></p>
+
+<script>
+let str233= '12,34,56';
+let sum233=0;
+
+	let arr233 = String( str233 ).split( ',' );
+	console.log( arr233 );
+
+	for (let i=0; i<arr233.length; i++) {
+		sum233+= +(arr233[i]);
+	}
+console.log( `Найдите сумму этих чисел ${ str233 } = `, Number (sum233 ));
+out233.innerHTML = `Найдите сумму этих чисел ${str233} = ${sum233}`;
+</script>
+	
+
+
+
+<h2>№4 Дана дата в следующем формате:'2025-12-31'
+Преобразуйте эту дату в следующий объект:</h2>
+<pre>
+	{
+year: '2025',
+month: '12',
+day: '31',
+}
+</pre>
+
+<script>
+let str234 = '2025-01-31';
+
+	var newDate = new Date( Date.UTC( str234) );
+	let d = new Date( str234 );
+	console.log( d.toLocaleDateString( "ru-RU" ) );
+	  console.log("year:", d.getFullYear()) ;
+		console.log("month:",d.getMonth()+1 );
+		console.log( "day:", d.getDate() ); 
+
+</script>
+
+
+
+</body>
+</html>
+

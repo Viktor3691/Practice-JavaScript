@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 4.4 задачника JavaScript</title>
+</head>
+<body>
+<h1>Уровень 4.4 задачника JavaScript</h1>
+
+<h2>№1 Сделайте функцию, которая параметром будет  <br>
+	принимать число, а возвращать количество его делителей.</h2>
+	<div441 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div441>
+
+	<script>
+	let num441=423698725;
+
+	function  getDivisorsNumber(n) {
+					let result = [ 1, n ];
+		for ( let i = 2; i < Math.pow( n, 0.5 ); i++ ) {
+			if ( n % i == 0 ) {
+				result.push( i );
+				result.push( n / i );
+			}
+		}
+		return result.sort( ( a, b ) => a - b );
+	}
+let arr441 = getDivisorsNumber( num441 );
+	let quantity = getDivisorsNumber( num441 ).length;
+
+		console.log( ` ${ quantity} делителей числа ${ num441 }  ${ arr441 }` );
+		document.querySelector('div441').innerHTML = `${ quantity } делителей числа ${ num441 }  ${ arr441 }`;
+
+	</script>
+
+<h2>№2 Сделайте функцию, которая параметром будет принимать дату,<br>
+	 а возвращать знак зодиака, соответствующий этой дате.</h2>
+<div442 style="font-size: 140%;text-shadow: 1px 1px 2px red;"></div442> <br>
+<div4421 style="font-size: 140%;text-shadow: 1px 1px 2px red;"></div4421>
+
+<script>
+
+			let date442 = new Date('1994.10.16');
+			let dd = ( date442.getDate() );
+			let mm = ( date442.getMonth() + 1 );
+			console.log( `дата,месяц = ${dd},${mm}` );
+
+	function zodiac ( day, month ) {
+
+		var zodiac = [ '', 'Козерог', 'Водолей', 'Рыбы', 'Овен', 'Телец', 'Близнецы', 'Рак', 'Лев', 'Дева', 'Весы', 'Скорпион', 'Стрелец', 'Козерог' ];
+		var last_day = [ '', 19, 18, 20, 20, 21, 21, 22, 22, 21, 22, 21, 20, 19 ];
+		return ( day > last_day[ month ] ) ? zodiac[ month * 1 + 1 ] : zodiac[ month ];
+	}
+
+	let z_sign = zodiac( dd, mm ); 
+
+	console.log(` ${z_sign}`); 
+document.querySelector('div442').innerHTML= `${ z_sign }`
+
+
+	//let str =prompt('gggg-mm-dd') ;
+		let date = new Date();
+		date = addZero( (date.getMonth() + 1 )) + ' ' + addZero( date.getDate() );
+		console.log(` месяц,дата = ${date}  `);
+
+		function addZero ( num ) {
+			if ( num <= 9 ) {
+				num = '0' + num;
+			}
+
+			return num;
+		}
+
+		if ( date >= '03.21' && date <= '04.19' ) {
+			console.log( 'Овен' );
+		} else if ( date >= '04-20' && date <= '05-20' ) {
+			console.log( 'Телец' );
+		}
+		else if ( date >= '05-21' && date <= '06-21' ) {
+			console.log( 'Близнецы' );
+		}
+		else if ( date >= '06-22' && date <= '07-22' ) {
+			console.log( 'Рак' );
+		}
+		else if ( date >= '07-23' && date <= '08-22' ) {
+			console.log( 'Лев' );
+		}
+		else if ( date >= '08-23' && date <= '09-22' ) {
+			console.log( 'Дева' );
+		}
+		else if ( date >= '09-23' && date <= '10-23' ) {
+			console.log( 'Весы' );
+		}
+		else if ( date >= '10-24' && date <= '11-22' ) {
+			console.log( 'Скорпион' );
+			document.querySelector( 'div4421' ).innerHTML = 'Скорпион' 
+		}
+		else if ( date >= '11-23' && date <= '12-21' ) {
+			console.log( 'Стрелец' );
+		}
+		else if ( date >= '12-22' && date <= '01-21' ) {
+			console.log( 'Стрелец' );
+		}		
+		else if ( date >= '12-22' && date <= '01-20' ) {
+			console.log( 'Козерог' );
+		}
+		else if ( date >= '01-21' && date <= '02-18' ) {
+			console.log( 'Водолей' );
+		}
+		else if ( date >= '02-19' && date <= '03-20' ) {
+			console.log( 'Рыбы' );
+		}
+		else {
+			console.log( 'не правильно набрана дата' );
+		}
+
+</script>
+
+<h2>№3 Сделайте функцию, которая параметром будет принимать число,<br>
+	 а возвращать массив его делителей.</h2>
+<div443 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div443>
+
+<script>
+
+	let num443 = 632587415;
+
+	function getDivisorsNumber ( n ) {
+		let result = [ 1, n ];
+		for ( let i = 2; i < Math.pow( n, 0.5 ); i++ ) {
+			if ( n % i == 0 ) {
+				result.push( i );
+				result.push( n / i );
+			}
+		}
+		return result.sort( ( a, b ) => a - b );
+	}
+	let arr443 = getDivisorsNumber( num443 );
+	
+
+	console.log( ` число = ${ num443 } массив его делителей [${ arr443 }]` );
+	document.querySelector( 'div443' ).innerHTML = ` число = ${ num443 } массив его делителей [${ arr443 }]`;
+
+
+</script>
+
+<h2>№4 Сделайте функцию, которая параметром будет принимать<br>
+	 число и проверять, простое оно или нет.
+	Если  простое число то  делиться только на 1 и само себя.</h2>
+<div444 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div444>
+
+<script>
+			let arr444 = [];
+			let newArr444 = [];
+
+
+	function isPrime ( num ) {
+		for ( let i = 2; i < num; i++ ) {
+			if ( num % i === 0 ) return false;
+		}
+		return num !== 1;
+	}
+let arr =[];
+
+	function printPrimes ( max ) {
+		for ( let i = 1; i <= max; i++ ) {
+			if ( isPrime( i ) )
+			arr.push(i)
+		}
+		console.log( arr );
+		document.querySelector('div444').innerHTML= `простые числа  от 1 до 20 [${arr}]`;
+	}
+	printPrimes( 20 );
+
+</script>
+
+<h2>№5 Сделайте функцию, которая параметром будет принимать число <br>
+	и удалять из него четные цифры.</h2>
+<div445 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div445>
+
+
+<script>
+function justNotEvenNumbers(num) {
+	num = num.toString().split( '' );
+	//console.log( num );
+	const exp = /[24680]/;
+	let num1 = num.filter( function ( entry ) { return !exp.test( entry ); } );
+	num1=+num1.join( '' )
+	console.log(+num1 );
+	document.querySelector('div445').innerHTML= `число =${ num445 } -> ${ num1 } `;
+}
+let num445=123456789987654321;
+
+justNotEvenNumbers( num445 );
+
+</script>
+
+<h2>№6 Сделайте функцию, которая заполнит массив N случайными числами из заданного промежутка.</h2>
+<div446 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div446>
+
+<script>
+
+	function* generateRandomIterable ( n, range ) {
+		//function* (ключевое слово function со звёздочкой) определяет функцию-генератор.
+		for ( let i = 0; i < n; i++ ) {
+			yield  Math.floor(( Math.random() * range ) );
+		}
+	}
+let quantity446 =33;
+let range446=45;
+	
+	const randomArr = [ ...generateRandomIterable( quantity446, range446 ) ];
+	console.log( randomArr );
+document.querySelector('div446').innerHTML=`[${randomArr}]`;
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

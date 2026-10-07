@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уровень 5.4 задачника JavaScript</title>
+</head>
+<body>
+<h1>Уровень 5.4 VillerOrenburg</h1>
+
+<h2>№1 Даны абзацы с текстом. Сделайте так, чтобы по нажатию на любой абзац его текстом становилось значение '!'.</h2>
+
+<p class="out1"> абзац с текстом</p>
+<p class="out1"> абзац с текстом</p>
+<p class="out1"> абзац с текстом</p>
+
+<script>
+
+   let links = document.querySelectorAll('.out1');
+    for (let p = 0; p < links.length; p++) {
+        let paragraph = links[p];
+        paragraph.addEventListener('click', function () {
+            paragraph.innerText = "!!!!";
+        });
+    }
+
+</script>
+<hr>
+
+<h2>№2 Даны ссылки и кнопка. По нажатию на кнопку получите массив атрибутов href ссылок.</h2>
+
+<a href="https://www.google.ru" target="_blank">https://www.google.ru</a><br>
+<a href="https://stackoverflow.com" target="_blank">https://stackoverflow.com</a><br>
+<a href="https://metanit.com" target="_blank">https://metanit.com</a><br>
+<br>
+<button id="submit">Click</button>
+<p id="tutorial"></p>
+
+<script>
+
+         document.getElementById('submit').onclick = function () {
+                let anchor = document.querySelector("a")
+                document.getElementById("tutorial").innerHTML = (anchor.getAttribute('href'));
+            }
+
+</script>
+
+№3 Дан абзац и кнопка. По нажатию на кнопку сделайте в цикле строку '123456789' и запишите ее в абзац.
+<br><br><br><br>
+<p class="p1">абзац</p>
+<button class="btn" onclick="btnClick1()">кнопка</button>
+
+<script>
+let p1=document.querySelector('.p1');
+
+function btnClick1() {
+    let str = '';
+    for (let i = 1; i <= 9; i++) {
+        str += i;
+    };
+    console.log(str);
+  p1.innerHTML=str;
+}
+</script>
+
+<div onclick="MyFunc(this);">Кликни на меня!</div>
+<script>
+    function MyFunc(a) {
+        a.innerHTML = 'Мыши любят сыр!';
+    }
+</script>
+
+№4 Даны три абзаца. Выведите в первый текущий год, во второй - текущий месяц, в третий - текущий день.
+
+<p  id="p11">1. текущий год</p>
+<p  id="p12">2. текущий месяц</p>
+<p  id="p13">3. текущий день</p>
+
+<script>
+let p11 = document.getElementById('p11');
+let p12= document.getElementById('p12');
+let p13 = document.getElementById('p13');
+
+    const date = new Date();
+
+p11.addEventListener('click', function(){
+p11.innerHTML= date.getFullYear();
+});
+
+    p12.addEventListener('click', function () {
+        p12.innerHTML = date.getMonth() + 1;
+    });
+
+    p13.addEventListener('click', function () {
+        p13.innerHTML = date.getDate();
+        });
+
+</script>
+
+№5 Дана ссылка, абзац и кнопка. По нажатию на кнопку запишите href ссылки в текст абзаца.
+
+<a href="https://metanit.com" id="a14">https://metanit.com</a>
+<p id="p14">абзац</p>
+<button id="click14">кнопка</button>
+
+<script>
+
+
+let click14=document.getElementById('click14').onclick = function () {
+ let a14 = document.getElementById('a14');
+let p14=document.getElementById('p14').innerHTML = (a14.getAttribute('href'));
+};
+
+
+</script>
+
+
+
+
+</body>
+</html>

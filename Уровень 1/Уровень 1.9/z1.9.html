@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 1.9 задачника JavaScript</title>
+	<style>
+		#print {
+			font-family: Verdana,
+				Geneva, Tahoma, sans-serif;
+			color: dodgerblue;
+			font-size: 20px;
+		}
+	
+		p {
+			font-size: 20px;
+		}
+	
+		pre {
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+<h1>Уровень 1.9 задачника JavaScript</h1>
+<h2>№1 Дан массив со строками. Оставьте в этом массиве только те строки, которые начинаются на http://.</h2>
+<pre id="out191_1" ></pre>
+<p id="out191"></p>
+	<script>
+	let arr191 = [
+		"https://massgrave.dev/get.ps1",
+		"https://stackoverflow.com/",
+		"https://code.mu/ru/",
+		"file:///C:/Users/vvill/",
+	];
+
+	const isValidUrl = ( url ) => {
+		const regexp = /http/;
+		return regexp.test( url );
+	};
+
+	const validUrls = arr191.filter( isValidUrl );
+	console.log( validUrls );
+
+
+out191_1.innerHTML=`arr191= [${arr191}]`;
+out191.innerHTML = `validUrls= [${ validUrls }]`;
+	</script>
+
+<h2>№2 Дан массив со строками. Оставьте в этом массиве только те строки, которые заканчиваются на .html.</h2>
+<p id="out192_1"></p>
+<p id="out192"></p>
+
+<script>
+	let arr192 = [
+		"file:///C:/Users/zadachi.html",
+		"https://mail.yandex.ru/",
+		"file:///C:/Users/",
+	];
+
+let pamiat = ( url ) => {
+		const zapomnit = /html/;
+		return zapomnit.test( url );
+	};
+
+	const itog = arr192.filter( pamiat );
+	console.log("192 itog ", itog );
+out192.innerHTML=`192 itog ${itog}`
+	out192_1.innerHTML = `arr192= [${ arr192 }]`;
+</script>
+
+<h2>№3 Дан массив с числами. Увеличьте каждое число из массива на 10 процентов.</h2>
+<p id="out193_1"></p>
+<p id="out193"></p>
+
+<script>
+let arr193 = [1, 2, 5, 4, 7, 8, 9, 7, 55, 44];
+
+let nowArr193 = arr193.map(function (i) {
+return Math.round(i * 0.1 * 100) / 100 + i;
+}
+);
+
+console.log(`nowArr19=[${nowArr193}]`);
+out193_1.innerHTML= `arr193=[${ arr193 }]`;
+out193.innerHTML= `nowArr19=[${ nowArr193 }]`;
+</script>
+</body>
+</html>

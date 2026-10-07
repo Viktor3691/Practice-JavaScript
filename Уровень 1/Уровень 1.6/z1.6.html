@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 1.6 задачника JavaScript</title>
+	<style>
+		#print {
+			font-family: Verdana,
+				Geneva, Tahoma, sans-serif;
+			color: dodgerblue;
+			font-size: 20px;
+		}
+	
+		p {
+			font-size: 20px;
+		}
+	
+		pre {
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+<h2>№1 Дан массив с числами. Найдите сумму квадратов элементов этого массива.</h2>
+<p id="out161_1"></p>
+<p id="out161"></p>
+
+<script>
+let massiv1=[1,2,3,4,5,6,10,20,30,40,50,60,]
+let sumKvadr=0;
+
+	function squareSum ( numbers ) {
+		return numbers.reduce( function ( sum, n ) {
+			return n * n + sum;
+		}, 0 );
+	}
+out161_1.innerHTML = `let massiv1=[${ massiv1 }] `;
+console.log(`суммa квадратов [${massiv1}]`,squareSum(massiv1));
+out161.innerHTML=`суммa квадратов  = ${squareSum( massiv1 )}`;
+</script>
+	
+<h2>№2 Дан массив с числами. Найдите сумму квадратных корней элементов этого массива.</h2>
+<p id="out162_2"></p>
+<p id="out162"></p>
+<p id="out162_1"></p>
+<script>
+let massiv2=massiv1;
+let nowMassiv2=[];
+for (let index = 0; index < massiv2.length; index++) {
+	let sumKvadrKorn = massiv2[index]**2
+	nowMassiv2.push(sumKvadrKorn);
+}
+out162_2.innerHTML=	`let massiv2=[${ massiv2 }] `;
+console.log(`корни ${nowMassiv2}`)
+out162.innerHTML= `корни ${ nowMassiv2 }`;
+
+for (let j=0, sum1=0; j < nowMassiv2.length; j++) {
+	sum1+=nowMassiv2[j]
+	console.log( `суммa квадратных корней ${ sum1 }` )
+	out162_1.innerHTML= `суммa квадратных корней ${ sum1 }`
+}
+
+
+</script>
+
+<h2>№3 Дан массив с числами. Найдите сумму положительных элементов этого массива.</h2>
+<p id="out163_1"></p>
+<p id="out163"></p>
+
+<script>
+const massiv3= [ 11, -4, 17, 6, -4, 5, 7, -5, 9, 11, -52, 53, ];
+let sum3=0;
+
+for (let index = 0; index < massiv3.length; index++) {
+	if( massiv3[ index ] > 0) {
+	sum3+= massiv3[ index ];
+	console.log( ` + ${massiv3[index]} = ${ sum3 }`)
+out163.innerHTML = ` положительныe элементы ${ sum3 }` 	
+	}
+}
+	out163_1.innerHTML = `let massiv3=[${ massiv3 }] `;
+</script>
+
+<h2>№4 Дан массив с числами. Найдите сумму тех элементов этого массива, которые больше нуля и меньше десяти.</h2>
+<p id="out164_1"></p>
+<p id="out164"></p>
+<p id="out164_2"></p>
+
+<script>
+const massiv4 = [ 11, -4, 17, 6, -4, 5, 7, -5, 9, 7, -52, 3, 45, 9 ];
+let sum4=0;
+
+let massiv4_1 = massiv4.filter( x => x > 0 && x < 10 );
+console.log( massiv4_1 );
+for (let i=0; i<massiv4_1.length; i++) {
+	sum4 +=massiv4_1[i];
+	console.log("sum4", sum4 )
+}
+
+out164_1.innerHTML = `let massiv4=[${ massiv4 }] `;
+out164.innerHTML = ` положительныe элементы ${ massiv4_1 }`
+out164_2.innerHTML = `sum4 = ${sum4}`;
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>1.2.1</title>
+</head>
+<body>
+	<h2>№1 Дано число. Выведите в консоль первую цифру этого числа.</h2>
+	<pre>number=45683
+				const number=45683;
+				const theFirstDigit=String(number)[0];
+				console.log(" Number theFirstDigit", Number(theFirstDigit) )
+	</pre>
+
+	<script>
+		let number=45683;
+		const theFirstDigit=String(number)[0];
+		console.log(" Number theFirstDigit", Number(theFirstDigit) )
+	</script>
+	<h2>№2 Дано число.Выведите в консоль последнюю цифру этого числа. </h2>
+	<p>number=45683</p>
+<script>
+number = 45683;
+const theLastDigit = String(number).slice(-1)
+	console.log( " Number heLastDigit", Number( theLastDigit ) )
+</script>
+<h2>№3 Дано число. Выведите в консоль сумму первой и последней цифры этого числа.</h2>
+<script>
+	number= 45683;
+	theFirstDigit;
+	theLastDigit;
+	const sum1=Number(theFirstDigit)+ Number( theLastDigit);
+	console.log(`сумму первой и последней цифры ${number}`, sum1 );
+</script>
+<h2>№4 Дано число. Выведите количество цифр в этом числе.</h2>
+<script>
+	number;
+	console.log(`количество цифр в этом числе ${number}`,String(number).length)
+</script>
+<h2>№5 Даны два числа. Проверьте, что первые цифры этих чисел совпадают.</h2>
+<script>
+const number1 = 2589634;
+const number2 = 278921;
+
+if (String(number1)[0] === String( number2 )[ 0 ] ) {
+	console.log(`${number1} ${ number2} первые цифры этих чисел совпадают` )
+} else  {
+		console.log( `${ number1 } ${ number2 } первые цифры НЕ совпадают` )
+}
+
+</script>
+
+<Script>
+	console.log( 'Start' );
+
+		setTimeout( () => {
+			console.log( 'Executed after 2 seconds' );
+		}, 2000 );
+
+		console.log( 'End' );
+//////////////////////////////////////////////
+	let counter = 0;
+
+	const intervalID = setInterval( () => {
+		counter++;
+		console.log( `Counter: ${ counter }` );
+		if ( counter >= 3 ) {
+			clearInterval( intervalID );
+		}
+	}, 1000 );
+
+
+</Script>
+
+<button id="myButton">Click me</button>
+
+<script>
+	const button = document.getElementById( 'myButton' );
+
+	button.addEventListener( 'click', () => {
+		console.log( 'Button clicked!' );
+	} );
+</script>
+
+<script>
+	const xhr = new XMLHttpRequest();
+		xhr.open( 'GET', 'https://jsonplaceholder.typicode.com/posts/1', true );
+
+		xhr.onreadystatechange = function () {
+			if ( xhr.readyState === 4 && xhr.status === 200 ) {
+				const response = JSON.parse( xhr.responseText );
+				console.log( response );
+			}
+		};
+
+		xhr.send();
+</script>
+
+<script>
+	console.log( 'Start' );
+
+		setTimeout( () => {
+			console.log( 'Timeout 1' );
+		}, 0 );
+
+		Promise.resolve().then( () => {
+			console.log( 'Promise 1' );
+		} );
+
+		setTimeout( () => {
+			console.log( 'Timeout 2' );
+		}, 0 );
+
+		Promise.resolve().then( () => {
+			console.log( 'Promise 2' );
+		} );
+
+		console.log( 'End' );
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 3.7 задачника JavaScript</title>
+</head>
+<body>
+
+<h1>Уровень 3.7 задачника JavaScript</h1>
+
+<h2>№1 Дана строка со словами. Отсортируйте слова в алфавитном порядке.</h2>
+
+<div id="out371" style="font-size: 140%; text-shadow: 1px 1px 2px  red;"></div>
+
+
+<script>
+let str371 = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, necessitatibus consectetur atque nobis itaque minima ab sequi quae dolorem voluptas ipsam, doloremque earum laudantium vitae. Error veniam exercitationem architecto dolorem!"
+
+	function sortAlpha ( word ) {
+		return word
+		.toLowerCase()
+		.split( " " )
+		.sort()
+		.join( " " );
+	}
+	let newstr371 = sortAlpha( str371 )
+
+	console.log( `${str371} <br>            слова в алфавитном порядке  = ${newstr371}` );
+document.getElementById("out371").innerHTML = `${ str371 }<br>               слова в алфавитном порядке  = ${ newstr371 }`
+
+</script>
+
+<h2>№2 Дано число. Получите массив делителей этого числа.</h2>
+
+	<div id="out372" style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div>
+
+<script>
+let num372 = 741235;
+
+	function arrayOfDivisors ( n ) {
+		let result = [ 1, n ];
+		for ( let i = 2; i < Math.pow( n, 0.5 ); i++ ) {
+			if ( n % i == 0 ) {
+				result.push( i );
+				result.push( n / i );
+			}
+		}
+		return result.sort( ( a, b ) => a - b );
+	}
+
+ let arr372 = arrayOfDivisors( num372 )
+
+console.log( `массив делителей этого числа ${num372} [${arr372}]` );
+document.getElementById("out372").innerHTML = `массив делителей этого числа ${ num372 } [${ arr372 }]`;
+
+</script>
+
+<h2>№3 Даны два числа. Получите массив общих делителей этих чисел.</h2>
+
+<div id="out3731" style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div>
+<div id="out3732" style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div>
+
+<script>
+
+let num3731=55680;
+let num3732=2250;
+
+
+// 1
+
+	function getDividers ( num ) {
+
+		var newArr = [];
+		for ( var i = 1; i <= num; i++ ) {
+			if ( num % i == 0 ) {
+				newArr.push( i );
+			}
+		}
+		return newArr;
+	}
+
+	function getCommonDividers ( a, b ) {
+		var arr1 = [];
+		var arr2 = [];
+		var arr = [];
+		arr1 = getDividers( a );
+		arr2 = getDividers( b );
+		for ( var i = 0; i < arr1.length; i++ ) {
+			for ( var j = 0; j < arr2.length; j++ ) {
+				if ( arr1[ i ] == arr2[ j ] ) {
+					arr.push( arr1[ i ] );
+				}
+			}
+		}
+		return arr;
+
+	}
+
+	let res3731= getCommonDividers( num3731, num3732 )
+
+	console.log(`1 вариант. Даны два числа. num3731=${num3731} и num3732=${num3732} массив общих делителей этих чисел - [${ res3731}]`  );
+document.getElementById("out3731").innerHTML = `1 вариант. Даны два числа. num3731=${ num3731 } и num3732=${ num3732 } массив общих делителей этих чисел - [${ res3731 }]`;
+
+//2
+
+	function dividersForArr ( m ) {
+		let array = [];//По умолчанию функция не работает с массивами. Однако ее можно заставить сделать это с помощью оператора spread.
+		let min = Math.min( ...m ); //Метод Math.min возвращает минимальное число из группы чисел, переданных параметрами.
+		//// Ищем общие делители
+		for ( let i = 1; i <= min; i++ ) {
+			if ( m.every( x => x % i === 0 ) ) array.push( i )
+		}
+		return array;
+	}
+
+	let res3732 = dividersForArr( [ num3731, num3732 ] )
+
+		console.log( `2 вариант.  массив общих делителей этих чисел - [${ res3731 }]` );
+
+		document.getElementById( "out3732" ).innerHTML = `2 вариант. массив общих делителей этих чисел - [${ res3732 }]`
+
+</script>
+
+<h2>№4 Дано число. Проверьте, что у этого числа есть только один делитель, <br>
+	 кроме него самого и единицы.</h2>
+<div id="out374" style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div>
+
+<script>
+let num374=4;
+
+	const divisors = num => [ ...Array( num ) ]
+		.map( ( x, i ) => i )
+		.filter( x => num % x === 0 ).slice( 1 )
+		
+		let res374 = divisors( num374 )
+
+	console.log( ` у числа ${num374} есть только один делитель - ${res374}` );
+document.getElementById("out374").innerHTML= ` у  числа ${ num374 } есть только один делитель - ${ res374 }`;
+
+</script>
+
+<h2>№5 Через запятую написаны числа. <br>
+	 Получите максимальное из этих чисел.</h2>
+<div id="out375" style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div>
+
+<script>
+
+	let nums375 = [ 1, 45, 2, 10, 7, 89, 4, 5, ];
+
+	let arr375 = Math.max.apply( null, nums375 )
+	console.log( `максимальное из этих чисел ${nums375}  -  ${arr375}` );
+document.getElementById("out375").innerHTML= `максимальное из этих чисел ${ nums375 }  -  ${ arr375 }`;
+
+</script>
+
+<h2>№6 Дан массив с числами. <br>
+	 После каждого однозначного числа вставьте еще такое же.</h2>, 
+<div id="out376" style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div>
+
+<script>
+//изменение массива с помощью циклов и splice для добавления элементов в a массив по определённым индексам:
+let arr376 = [11, 22, 333, 4444, 55555, 666666,]
+let arr3761 = [ ...arr376 ];
+
+	function arrInsertAfter ( a, b, after ) {
+		let j = 0;
+
+		for ( let i = after; i < a.length && j < b.length; i += after ) {
+			a.splice( i++, 0, b[ j++ ] );
+		}
+
+		while ( j < b.length ) {
+			a.push( b[ j++ ] );
+		}
+	}
+
+	arrInsertAfter( arr376, arr3761, 1 );
+
+console.log(`массив с числами arr376=[${arr3761}]. После числа вставьте еще такое же arr376=[${ arr376}]`  );
+document.getElementById("out376").innerHTML= `массив с числами arr376=[${ arr3761 }]. После числа вставьте еще такое же arr376=[${ arr376 }]`;
+
+</script>
+
+<h2>№7 Дана строка. Удалите из нее все гласные буквы.</h2>
+<div id="out377" style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div>
+
+<p></p>
+<script>
+
+let str377="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit molestias saepe omnis sed consectetur, explicabo et. Veritatis libero repellat debitis eum maxime magni beatae, minus a amet modi exercitationem alias!"
+
+	function disemvowel ( str ) {
+		const vowels = [ 'a', 'e', 'i', 'o', 'u' ];
+		return str
+			.split( '' )
+			.filter( char => !vowels.includes( char ) )
+			.join( '' );
+	}
+
+let res377= disemvowel( str377 )
+	console.log(`${ res377}`);
+	document.getElementById("out377").innerHTML= `${ res377 }`;
+</script>
+
+<h2>№8 Дана строка. Сделайте заглавной последнюю букву каждого слова в этой строке. </h2>
+
+<div id="out378" style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div>
+
+<script>
+	let str378= "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit molestias saepe omnis sed consectetur, explicabo et. Veritatis libero repellat debitis eum maxime magni beatae, minus a amet modi exercitationem alias!";
+//1
+	function endCaseWords ( str378 ) {
+		return str378.toLowerCase().replace( /.\b/g, function ( match ) {
+			return match.toUpperCase();
+		} );
+	}
+let res3781= endCaseWords( str378 )
+
+	console.log( `1 вариант ${ res3781 }` );
+	document.getElementById("out378").innerHTML = `1 вариант ${ res3781 }`
+
+//2
+let res3782 = str378.trim().toLowerCase().replace( /.\b/g, x => x.toUpperCase() ) 
+
+	console.log( ` 2 вариант ${ res3782 }` );
+</script>
+
+<h2>№9 Дан следующая структура: <br>
+
+let data = [<br>
+{<br>
+1: [1, 2, 3],<br>
+2: [1, 2, 3],<br>
+3: [1, 2, 3],<br>
+},<br>
+{<br>
+1: [1, 2, 3],<br>
+2: [1, 2, 3],<br>
+3: [1, 2, 3],<br>
+},<br>
+{<br>
+1: [1, 2, 3],<br>
+2: [1, 2, 3],<br>
+3: [1, 2, 3],<br>
+},<br>
+];<br>
+Найдите сумму элементов этой структуры.</h2>
+<div id="out379" style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div>
+
+
+<script>
+
+	let data379 = [
+		{
+			1: [ 1, 2, 3 ],
+			2: [ 1, 2, 3 ],
+			3: [ 1, 2, 3 ],
+		},
+		{
+			1: [ 1, 2, 3 ],
+			2: [ 1, 2, 3 ],
+			3: [ 1, 2, 3 ],
+		},
+		{
+			1: [ 1, 2, 3 ],
+			2: [ 1, 2, 3 ],
+			3: [ 1, 2, 3 ],
+		},
+	];
+
+	let sum379 = 0;
+
+		// вариант 3
+
+
+			function sum2 ( val ) {
+				let result = 0;
+
+				for ( const stack = [ val ]; stack.length; ) {
+					const n = stack.pop();
+					if ( n instanceof Object ) {
+						stack.push( ...Object.values( n ) );
+					} else if ( n === +n ) {
+						result += n;
+					}
+				}
+
+				return result;
+			}
+
+			sum379 = sum2( data379 );
+
+  let res379 = sum379 
+	console.log( `суммa элементов этой структуры ${ res379}`);
+document.getElementById("out379").innerHTML = `суммa элементов этой структуры ${ res379 }`
+
+
+</script>
+
+</body>
+</html>

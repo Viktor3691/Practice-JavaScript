@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 3.2 задачника JavaScript</title>
+		
+</head>
+<body>
+<h1>Уровень 3.2 задачника JavaScript</h1>
+<h2>№1 Выведите в консоль все числа в промежутке от 10 до 1000, <br>
+	 у которых предпоследняя цифра четная.</h2>
+	 <p id="out321"></p>
+
+	 <script>
+	let arr321 = [];
+	let newArr321=[];
+
+for (let index = 10; index < 1000; index++) {
+	arr321.push(index);
+}
+//console.log(arr321);
+
+
+for (let index = 0; index < arr321.length; index++) {
+	let element = arr321[index];
+	let secondLast = Math.trunc(element/10);
+	//console.log( secondLast );
+if (secondLast%2==0) {
+newArr321.push(secondLast);
+
+}
+}
+console.log( newArr321 );	
+document.querySelector( "#out321" ).innerHTML =`[${newArr321}]`
+
+	 </script>
+
+<h2>Дан массив. Удалите из него каждый пятый элемент.</h2>
+<p id="out322"></p>
+
+<script>
+
+	let arr322 = [ '1Дан', '2массив.','3Удалите', '4из', '5него', '6каждый', '7пятый', '8элемент',  '9Дан', '10массив.', '11Удалите', '12из', '13него', '14каждый', '15пятый', '16элемент', ]
+	console.log( arr322 );
+
+	for ( let i = 3; i < arr322.length; i += 5 ) {
+		arr322.splice( i, 1 );
+		console.log( arr322 );
+		document.querySelector( "#out322" ).innerHTML = arr322;
+
+		let removed = arr322.splice( i, 1 );
+		console.log( removed );
+	}
+
+</script>
+
+<h2>№3 Дана некоторая переменная с числом: <br>
+let num = 5;
+Сделайте строку, содержащую столько нулей, сколько указано в переменной.<br>
+ В нашем случае получится такая строка '00000'</h2>
+ <p id="out323"></p>
+
+ <script>
+	let num323 = 5;
+
+	const fiveZeros = ( num, places ) => String( num ).padStart( places, '0' )
+	let res323 = fiveZeros( 0, num323 )
+	console.log(`'${res323}'`); 
+	document.querySelector( "#out323" ).innerHTML = `'${ res323 }'`;
+
+	//Метод padStart() заполняет текущую строку другой строкой (несколько раз, если нужно) так, что итоговая строка достигает заданной длины. Заполнение осуществляется в начале (слева) текущей строки.
+ </script>
+
+<h2>№4 Дана некоторая строка со словами:'aaa bbb ccc eee fff' <br>
+Удалите из этой строки каждое второе слово. <br>
+ В нашем случае должно получится следующее: 'aaa ccc fff'</h2>
+<p id="out324"></p>
+
+<script>
+let str324= 'aaa bbb ccc eee fff';
+
+	String.prototype.deleteWord = function ( searchTerm ) {
+		let str = this;
+		let n = str.search( searchTerm );
+		while ( str.search( searchTerm ) > -1 ) {
+			n = str.search( searchTerm );
+			str = str.substring( 0, n ) + str.substring( n + searchTerm.length, str.length );
+		}
+		return str;
+	}
+
+newStr324= str324.deleteWord( 'bbb' ).deleteWord( 'eee' );
+console.log(`'${newStr324}'`);
+document.querySelector( "#out324" ).innerHTML = `'${ newStr324 }'`
+</script>
+
+<h2>№5 Дан массив:<br>
+[<br>
+[1, 2, 3],<br>
+[4, 5, 6],<br>
+[7, 8, 9],<br>
+]<br>
+Найдите сумму элементов этого массива.</h2>
+<p id="out325"></p>
+
+<script>
+let arr325= [
+[1, 2, 3],
+[4, 5, 6],
+[7, 8, 9],
+];
+
+	let sum325 = 0;
+
+	arr325 = arr325.flat( 2 )
+
+	for ( let i = 0; i < arr325.length; i++ ) {
+		sum325 += arr325[ i ];
+	}
+
+	console.log( sum325 );
+	document.querySelector( "#out325" ).innerHTML = `суммa элементов этого массива sum325= ${sum325}`
+//Метод flat() в JavaScript принимает один параметр — глубину «сглаживания» массива. 1 По умолчанию она равна 1. 2
+//Если не известен уровень вложенности подмассивов, можно указать в качестве параметра значение бесконечности — Infinity.Это позволит убрать абсолютно все вложенности во всех подмассива
+</script>
+
+</body>
+</html>

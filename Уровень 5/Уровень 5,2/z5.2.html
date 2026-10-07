@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VillerOrenburg Уровень 5.2 задачника JavaScript</title>
+</head>
+<body>
+<h1>VillerOrenburg Уровень 5.2 задачника JavaScript</h1>
+
+<h2>№1 Дан абзац и кнопка. По нажатию на кнопку найдите сумму чисел от 1 до 100 и запишите результат в абзац.</h2>
+
+<button onclick="sumNumber()">суммa чисел от 1 до 100</button>
+<p id="result 1">Сумма чисел:</p>
+
+<script>
+    function sumNumber() {
+      let sum1=0;
+for (let index = 0; index <=100; index++) {
+   sum1=sum1+index;
+
+}
+        document.getElementById('result 1').innerText = `Сумма чисел: ${sum1}`;
+    }
+</script>
+<hr>
+
+<h2>№2 Дана кнопка и два инпута. В инпуты вводятся числа. По нажатию на кнопку найдите сумму введенных чисел.</h2>
+
+<input type="number"  id="number1" placeholder="Введите первое число">;
+<input type="number"  id="number2" placeholder="Введите второе число">;
+<button onclick="calculateSum1()">Посчитать сумму</button>
+<p id="result2"></p>
+
+<script>
+    function calculateSum1() {
+        const num1 = parseFloat(document.getElementById('number1').value);
+        const num2 = parseFloat(document.getElementById('number2').value);
+        const sum = num1 + num2;
+        document.getElementById('result2').innerText = `Сумма чисел: ${sum}`;
+    }
+</script>
+<hr>
+
+<h2>№3 Даны абзацы, кнопка и див. По нажатию на кнопку найдите количество абзацев и выведите это значение в див.</h2>
+
+<p class="num">1</p>
+<p class="num">1</p>
+<p class="num">1</p>
+<p class="num">1</p>
+<p class="num">1</p>
+<p class="num">1</p>
+<p class="num">1</p>
+<p class="num">1</p>
+
+<button onclick="calculateParagraph();">количество абзацев</button>
+<div id="result3"></div>
+
+<script>
+function calculateParagraph () {
+    let sum =0;
+    let paragraphs = document.querySelectorAll ('.num');
+    let result = document.getElementById('result3');
+    for (let i = 0; i < paragraphs.length +1;  i++) {
+        sum =+ i;
+    }
+    result.innerHTML=sum;
+}
+
+</script>
+
+<h2>№4 Дана кнопка и инпут. В инпут вводится строка. По нажатию на кнопку определите, сколько символов в введенной строке.</h2>
+
+<button onclick="calculateStr();">символов в введенной строке</button>
+<input type="text" id="Str" placeholder="вводится строка">
+<div id="result4"></div>
+
+<script>
+function calculateStr() {
+  let element = document.getElementById("Str") ;
+  let length =element.value.length;
+let result = document.querySelector("#result4");
+result.innerHTML=length;
+}
+
+</script>
+
+
+</body>
+</html>

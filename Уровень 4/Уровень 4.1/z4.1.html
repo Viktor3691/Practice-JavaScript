@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Уровень 4.1 задачника JavaScript</title>
+</head>
+<body>
+
+	<h1>Уровень 4.1 задачника JavaScript</h1>
+
+	<h2>№1 Сделайте функцию, которая вернет текущий день недели словом.</h2>
+
+	<div411 style="font-size:  140%; text-shadow: 1px 1px 2px red;"></div411>
+
+
+<script>
+
+	
+	function getWeekDay ( date ) {
+		let days = [ 'Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота' ];
+		return days[ date.getDay() ];
+	}
+
+	let date411 = new Date();
+	console.log(`${date411}    ${ getWeekDay( date411 ) }`  )
+document.querySelector('div411').innerHTML= `${ date411 }    ${ getWeekDay( date411 ) }`
+
+</script>
+
+<h2>№2 Сделайте функцию, которая параметром будет получать дату, <br>
+	 а возвращать день недели словом, соответствующий этой дате.</h2>
+<div412 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div412>
+
+<script>
+function getDay(date) {
+		let days = [ 'Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота' ];
+	return days[ date.getDay() ];
+}
+
+	let date412 = new Date( 2024, 10, 4 );
+
+	console.log( `${date412} ${getDay(date412)}` );
+document.querySelector('div412').innerHTML= `${ date412 } ${ getDay( date412 ) }`;
+
+</script>
+
+<h2>№3 Сделайте функцию, которая параметром будет принимать секунды, <br>
+	 а возвращать количество суток, соответствующих этим секундам.</h2>
+<div413 style="font-size: 140%; text-shadow: 1px 1px 1px red;"></div413>
+
+<script>
+
+	function secondsToDhms ( seconds ) {
+		seconds = Number( seconds );
+		let d = Math.floor( seconds / ( 3600 * 24 ) );
+		let dDisplay = d > 0 ? d + ( d == 1 ? " day " : " days " ) : "";
+		return dDisplay ;
+	}
+	console.log( ` secondsToDhms( 123456789 ) = ${ secondsToDhms( 123456789 ) }` );
+document.querySelector('div413').innerHTML= ` secondsToDhms( 123456789 ) = ${ secondsToDhms( 123456789 ) }`;
+
+		//function secondsToDhms ( seconds ) {
+		//	seconds = Number( seconds );
+		//	let d = Math.floor( seconds / ( 3600 * 24 ) );
+		//	let h = Math.floor( seconds % ( 3600 * 24 ) / 3600 );
+		//	let m = Math.floor( seconds % 3600 / 60 );
+		//	let s = Math.floor( seconds % 60 );
+
+		//	let dDisplay = d > 0 ? d + ( d == 1 ? " day, " : " days, " ) : "";
+		//	let hDisplay = h > 0 ? h + ( h == 1 ? " hour, " : " hours, " ) : "";
+		//	let mDisplay = m > 0 ? m + ( m == 1 ? " minute, " : " minutes, " ) : "";
+		//	let sDisplay = s > 0 ? s + ( s == 1 ? " second" : " seconds" ) : "";
+		//	return dDisplay + hDisplay + mDisplay + sDisplay;
+		//}
+		//console.log( ` secondsToDhms( 123456789 ) = ${ secondsToDhms( 123456789 ) }` );
+
+</script>
+
+<h2>№4 Сделайте функцию, которая параметром будет принимать число и строку <br>
+	 и обрезать эту строку до длины, заданной первым параметром.</h2>
+<div414 style="font-size: 140%; text-shadow: 1px 1px 2px red ;"></div414>
+
+<script>
+
+let str414='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo temporibus quae est officiis consequatur debitis odit, aspernatur pariatur commodi repellendus cupiditate, molestias eligendi? Tempora omnis soluta consequatur, delectus optio esse.'
+
+let num414=56;
+
+	function truncate ( str, num ) {
+		if ( str.length <= num ) {
+			return str;
+		}
+		res = str.slice( 0, num );
+		return res;
+	}
+console.log(`число -${num414}.  строкa -'${ truncate( str414, num414 ) }'`);
+document.querySelector('div414').innerHTML= `число -${ num414 }.  строкa -'${ truncate( str414, num414 ) }'`;
+</script>
+
+<h2>№5 Сделайте функцию, которая параметром будет получать дату, <br>
+	 а возвращать знак зодиака, соответствующий этой дате.</h2>
+<div415 style="font-size: 140%; text-shadow: 1px 1px 2px red"></div415>
+
+<script>
+
+	let birthDate = '1994-10-16'
+
+	function getZodiacSign ( birthDate ) {
+		const zodiacSigns = [ 'Козерог', 'Водолей', 'Рыбы', 'Овен', 'Телец', 'Близнецы', 'Рак', 'Лев', 'Дева', 'Весы', 'Скорпион', 'Стрелец', ];
+		// Приводим дату рождения к UNIX timestamp
+		const birthDateUnix = Date.parse( birthDate );
+		// Вычисляем индекс знака зодиака в массиве zodiacSigns
+		const signIndex = Math.floor( birthDateUnix / ( 1000 * 60 * 60 * 24 ) / 31.8 );
+		return zodiacSigns[ signIndex % zodiacSigns.length ];
+	}
+console.log(`${birthDate} знак зодиака- '${ getZodiacSign( birthDate ) }'`);
+document.querySelector('div415').innerHTML= `${ birthDate } знак зодиака- '${ getZodiacSign( birthDate ) }'`
+
+</script>
+
+<h2>№6 Сделайте функцию, которая параметром будет принимать число, <br>
+	 а возвращать сумму его делителей.</h2>
+<div4161 style="font-size: 140%; text-shadow: 1px 1px 2px red;"></div4161> <br>
+
+<script>
+
+let num416=77;
+	let divisorsList = [];
+	let divisors = ( n ) => [ ...Array( n + 1 ).keys() ].slice( 1 )
+		.reduce( ( s, a ) => {
+			let divisor = !( n % a ) && a;
+			if ( divisor ) divisorsList.push( divisor );
+			return s + divisor;
+		}, 0 );
+
+
+
+	console.log( `число: ${num416} сумма= ${ divisors( num416 ) }`);
+	console.log(`Делители: ${ divisorsList}`)
+
+
+	document.querySelector('div4161').innerHTML= `число: ${ num416 }  Делители: ${ divisorsList }  сумма= ${ divisors( num416 ) } `;
+
+	
+
+	//Объяснение:
+
+//	n => это функция со стрелкой, эквивалентная функции( n ) {. Вам не нужна функция(), если есть только один параметр.
+//	Array( n + 1 ) создает пустой массив из n + 1 элементов
+//	.keys() получает ключи из пустого массива( индексы, т.е. 0, 1, 2 ), так что это способ создать числовую последовательность
+//	[...Array( n + 1 )].keys()] использует оператор spread( ...) для преобразования итератора в другой массив, создавая массив с числовой последовательностью
+//	.slice( 1 ) удаляет первый элемент, создавая последовательность, начинающуюся с 1. Помните n + 1 ?
+//.reduce() это метод, который выполняет итерацию по каждому элементу и вычисляет значение, чтобы уменьшить массив до одного значения.Он получает в качестве параметра функцию обратного вызова для вычисления значения и начального значения вычисления
+//	( s, a )=> это функция обратного вызова для reduce.Это функция со стрелкой, эквивалентная функции( s, a ) {
+//	s + ( !( n % a ) && a ) это вычисление значения.
+//	s + s( для суммы ) или последнее вычисленное значение +
+//	!( n % a ) это возвращает true только для элементов, которые имеют 0 в качестве модульного значения.
+//( !( n % a ) && a ) это "трюк" js.Дело в том, что логические выражения в javascript не возвращают true или false.Они возвращают "правдивое" или "ложное" значение, которое затем преобразуется в boolean.Таким образом, фактическое возвращаемое значение является правильным значением для && ( учитывая, что оба значения должны быть правдивыми) и первым таким образом найденным значением для || ( учитывая, что правдивым должно быть только одно значение). Таким образом, это в основном означает: если a возвращается модульное значение( т.Е. ! = 0 ) a для добавления к сумме, в противном случае возвращается 0.
+//				, 0 это начальное значение для вычисления reduce.
+
+
+
+</script>
+
+	<script>
+
+	//
+	//let arr2 = [ 1, 11, 23, 30, 313, 401, 440, 5010, 501 ];
+
+
+//Сделайте функцию, которая параметром будет принимать число и возвращать массив его делителей.
+
+//Программа на JavaScript для поиска простых множителей
+
+//Метод 1: использование циклов и метода Math.pow()
+//В этом методе мы будем использовать цикл JavaScript для выбора возможных делителей и метод Math.pow() для получения квадратного корня из чисел.Вместо метода Math.pow() мы также можем использовать Math.sqrt() или условие i * i < n.
+
+//let num=5893546;
+
+
+	//function arrayOfDivisors ( n ) {
+	//	let result = [ 1, n ];
+	//	for ( let i = 2; i < Math.pow( n, 0.5 ); i++ ) {
+	//		if ( n % i == 0 ) {
+	//			result.push( i );
+	//			result.push( n / i );
+	//		}
+	//	}
+	//	return result.sort( ( a, b ) => a - b );
+	//}
+
+	//let arr = arrayOfDivisors( num )
+
+	//console.log( `массив делителей этого числа ${ num } [${ arr }]` );
+	
+
+//	Метод 2: Рекурсивный подход с оператором распространения
+//В этом методе мы введём функцию рекурсивно и вернём результат с помощью оператора распространения, чтобы получить массив.
+
+//	function recursivePrime ( n, d ) {
+//		if ( n <= 1 ) {
+//			return [];
+//		} 
+//		if ( n == 2 ) {
+//			return [ 2 ];
+//			flag = false;
+
+//			if ( n % d == 0 ) {
+//				n /= d;
+//				flag = true;
+
+//				if ( flag ) {
+//					return [ d, ...recursivePrime( n, d + 1 ) ];
+//				} return recursivePrime( n, d + 1 );
+//			}
+//		} 
+
+//	}
+
+//let res= recursivePrime( num, 2 );
+
+//	console.log(
+//		"Prime factors of " + num + ": " +	res
+//	);
+
+
+
+
+
+
+
+	//Код должен найти сумму цифр числа:
+
+	//let num = 12345;
+
+	//function getDigitsSum ( num ) {
+	//	let arr = num.toString().split( '' );
+	//	let sum = 0;
+
+	//	for ( let elem of arr ) {
+	//		sum += +elem;
+	//	}
+
+	//	return sum;
+	//}
+
+	//	let res = getDigitsSum( num );
+	//	console.log( res );
+
+	//Код должен проверить число на то, что оно является простым:
+
+	// должен вывести true
+
+	//function isPrime ( num ) {
+	//	for ( let i = 2; i < num; i++ ) {
+	//		if ( num % i !== 0 ) {
+	//			return true;
+	//		} else {
+	//			return false;
+	//		}
+	//	}
+	//}
+
+	//	console.log( isPrime( 13 ) );
+
+
+//Сделайте функцию, которая параметром будет принимать массив и возвращать сумму его элементов.
+//let arr = [ 1, 1111, 23, 30, 33, 401, 440, 500, 501 ];
+//function sum(arr) {
+//	let res=0;
+//	for (const element of arr) {
+//		res+=element;
+//	}
+//	return res;
+//}
+//	console.log(sum(arr));
+
+
+	//let arr=[ 1, 2, 3, 4, 5 ];
+
+	//function sum ( arr ) {
+	//	let res = 0;
+	//	for ( let elem of arr ) {
+	//		res += elem;
+	//	}
+	//	return res;
+	//}
+	//	console.log( sum(arr) );
+
+	//function sum ( arr ) {
+	//	let res = 0;
+
+	//	for ( let elem of arr ) {
+	//		res += elem;
+	//	}
+	//	return res;
+	//}
+
+	//console.log( sum( [ 1, 2, 3, 4, 5 ] ) );
+
+	//function sum ( arr ) {
+	//	let res = 0;
+
+	//	for ( let elem of arr ) {
+	//		res += elem;
+	//	}
+	//	return res;
+	//}
+	//	let res = sum( [ 1, 2, 3, 4, 5 ] );
+	//	console.log( res );
+
+//Функция добавляет ноль к числу от 1 до 9, а числа больше 9 возвращает без изменений:
+
+	//function add ( num ) {
+	//	if ( num <= 9 ) {
+	//		return '0' + num;
+	//	} return  num;
+	//}
+
+	//console.log( add( 3 ) );
+
+
+//Код должен найти сумму элементов массива:
+
+	//let arr = [ 1, 2, 3, 4, 5 ];
+
+
+	//function sum ( arr ) {
+	//	let res = 0;
+
+	//	for ( let elem of arr ) {
+	//		res += elem;
+	//	}
+
+	//	return res;
+	//}
+
+	//	let res = sum( arr );
+	//	console.log( res );
+
+	</script>
+	
+</body>
+</html>
